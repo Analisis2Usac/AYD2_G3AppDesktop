@@ -35,7 +35,7 @@ Ahora para cambiarte de rama usa
 
 Realiza todos los cambios y commits necesarios. Al finalizar haz un `$ git push origin <branch>`
 
-Ahora ingresa la página de gitlab (<https://github.com/javib94usac/AnalisisPensumApp.git>)
+Ahora ingresa la página de gitlab (https://github.com/magicluis/AYD2_G3AppDesktop)
   * hacer un `marge request` a el branch `develop`
   * Esperar a que los cambios se acepten
   * Al aceptar los cambios puedes borrar la rama y crear otra con otra feature

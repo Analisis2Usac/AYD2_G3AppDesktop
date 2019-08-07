@@ -250,8 +250,10 @@ CREATE TABLE documento (
 -- -----------------------------------------------------
 CREATE TABLE suscripcion (
   id_suscripcion INT NOT NULL AUTO_INCREMENT,
-  total VARCHAR(45) NULL,
-  fecha DATE NULL,
+  total INT NULL,
+  fecha_inicio DATE NULL,
+  fecha_final DATE NULL,
+  limite_servicios INT NULL,
   id_empresa INT NOT NULL,
   PRIMARY KEY (id_suscripcion),
   INDEX fk_subscripcion_empresa1_idx (id_empresa),

@@ -96,6 +96,30 @@ CREATE TABLE forma_pago (
 );
 
 -- -----------------------------------------------------
+-- usuario
+-- -----------------------------------------------------
+CREATE TABLE usuario (
+  email VARCHAR(100) NOT NULL,
+  contrasenia VARCHAR(100) NULL,
+  dpi VARCHAR(25) NULL,
+  nombre VARCHAR(45) NULL,
+  apellido VARCHAR(45) NULL,
+  direccion VARCHAR(45) NULL,
+  telefono VARCHAR(8) NULL,
+  zona INT NULL,
+  latitud DOUBLE NULL,
+  longitud DOUBLE NULL,
+  id_municipio INT NOT NULL,
+  INDEX fk_persona_municipio1_idx (id_municipio),
+  PRIMARY KEY (email),
+  CONSTRAINT fk_persona_municipio1
+    FOREIGN KEY (id_municipio)
+    REFERENCES municipio (id_municipio)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+-- -----------------------------------------------------
 -- detalle_contrato
 -- -----------------------------------------------------
 CREATE TABLE detalle_contrato (
@@ -104,9 +128,11 @@ CREATE TABLE detalle_contrato (
   id_empresa INT NOT NULL,
   id_servicio INT NOT NULL,
   id_pago INT NOT NULL,
+  email VARCHAR(100) NOT NULL,
   PRIMARY KEY (id_contrato),
   INDEX fk_detalle_contrato_lista_servicio1_idx (id_empresa, id_servicio),
   INDEX fk_detalle_contrato_forma_pago1_idx (id_pago),
+  INDEX fk_detalle_contrato_usuario1_idx (email),
   CONSTRAINT fk_detalle_contrato_lista_servicio1
     FOREIGN KEY (id_empresa , id_servicio)
     REFERENCES lista_servicio (id_empresa, id_servicio)
@@ -115,6 +141,11 @@ CREATE TABLE detalle_contrato (
   CONSTRAINT fk_detalle_contrato_forma_pago1
     FOREIGN KEY (id_pago)
     REFERENCES forma_pago (id_pago)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+CONSTRAINT fk_detalle_contrato_usuario1
+    FOREIGN KEY (email)
+    REFERENCES usuario (email)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 );
@@ -147,30 +178,6 @@ CREATE TABLE calificacion (
   CONSTRAINT fk_calificacion_detalle_contrato1
     FOREIGN KEY (id_contrato)
     REFERENCES detalle_contrato (id_contrato)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-);
-
--- -----------------------------------------------------
--- usuario
--- -----------------------------------------------------
-CREATE TABLE usuario (
-  email VARCHAR(100) NOT NULL,
-  password VARCHAR(100) NULL,
-  dpi VARCHAR(25) NULL,
-  nombre VARCHAR(45) NULL,
-  apellido VARCHAR(45) NULL,
-  direccion VARCHAR(45) NULL,
-  telefono VARCHAR(8) NULL,
-  zona INT NULL,
-  latitud DOUBLE NULL,
-  longitud DOUBLE NULL,
-  id_municipio INT NOT NULL,
-  INDEX fk_persona_municipio1_idx (id_municipio),
-  PRIMARY KEY (email),
-  CONSTRAINT fk_persona_municipio1
-    FOREIGN KEY (id_municipio)
-    REFERENCES municipio (id_municipio)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 );

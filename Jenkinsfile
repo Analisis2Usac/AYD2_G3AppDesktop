@@ -1,12 +1,22 @@
 pipeline {
   agent any
   stages {
-    stage('build') {
+    
+    stage('Build') {
       steps {
-        echo 'hello word my firts message'
-        echo 'Prueba de construccion de la aplicacion'
-  
+        echo 'Area de construccion'
       }
     }
+    stage('Test'){
+      steps{
+       echo 'Area de pruebas' 
+      }
+    }
+    stage('Deploy'){
+      steps{
+        echo 'Area de lanzamiento' 
+      }     
+    }
+    
   }
 }

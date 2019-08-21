@@ -5,6 +5,9 @@
  */
 package appdesktop;
 
+import controlador.controlMunicipio;
+import modelos.municipio;
+
 /**
  *
  * @author luismiguel
@@ -17,6 +20,12 @@ public class AppDesktop {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Empezar el desarrollo");
+        
+        municipio muni = new municipio(null,"Guatemala");
+        controlMunicipio controller = new controlMunicipio();
+        
+        controller.registrar(muni);
+        controller.listarMunicipio();
     }
     
 }

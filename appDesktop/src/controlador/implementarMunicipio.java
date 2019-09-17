@@ -5,13 +5,14 @@
  */
 package controlador;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelos.municipio;
 import servicios.conexion;
 
@@ -19,46 +20,48 @@ import servicios.conexion;
  *
  * @author luismiguel
  */
-public class controlMunicipio {
-    
-    
-    
-     public boolean registrar(String nombre) {
+public class implementarMunicipio{
+
+    public boolean registrar(municipio muni) {
         
+      
             boolean registrar =false;
+            
+            Statement stm = null;
             Connection con = null;
-            int id = 0;
             
-            try{
-                con = conexion.conectar();
-                CallableStatement proc = con.prepareCall(" CALL muniAddOrEdit(?,?) ");
-                proc.setInt("_id", id);
-                proc.setString("_nombre", nombre);
-                proc.execute();
-                
-            }catch(Exception e){
-                
-                System.err.println(e);
-            }
+            String sql = "INSERT INTO municipio VALUES ( NULL,'"+muni.getNombre()+"')";
             
+           try{ 
+            con = conexion.conectar();
+            stm = con.createStatement();
+            stm.execute(sql);
+            registrar = true;
+            stm.close();
+            con.close();
+        } catch (SQLException ex) {
+               System.out.println("Erro: clase municipio, no se pudo registrar ");
+               ex.printStackTrace();
+        }
+           
            return registrar;
     }
 
-    public boolean actualizar(int id,String nombre) {
+    public boolean actualizar(municipio muni) {
         
        
             Connection con = null;
             Statement stm = null;
-            boolean actualizar = false;
-
+            
+            boolean actualizar =false;
+            String sql = "UPDATE municipio SET nombre ='"+muni.getNombre()+"'"+" WHERE id_municipio = "+ muni.getId();
+            
             try{
-                con = conexion.conectar();
-                CallableStatement proc = con.prepareCall(" CALL muniAddOrEdit(?,?) ");
-                proc.setInt("_id", id);
-                proc.setString("_nombre", nombre);
-                proc.execute();
-                actualizar = true;
-                
+            
+            con = conexion.conectar();
+            stm = con.createStatement();
+            stm.execute(sql);
+            actualizar = true;
         } catch (SQLException ex) {
                 System.out.println("Error: Clase municipio, no se puede actualizar");
                 ex.printStackTrace();
@@ -88,10 +91,9 @@ public class controlMunicipio {
         }
         
         return eliminar;
-        
+      
     }
-    
-    
+
     public List<municipio> obtener() {
         
         
@@ -128,7 +130,6 @@ public class controlMunicipio {
         
             return listMuni;
     }
-    
     
     
     

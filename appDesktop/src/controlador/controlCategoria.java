@@ -3,66 +3,60 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelos;
+package controlador;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import modelos.categoria;
+import modelos.municipio;
 import servicios.conexion;
 
 /**
  *
  * @author luismiguel
  */
-public class implementarMunicipio implements metodoMunicipio {
-
-    @Override
-    public boolean registrar(municipio muni) {
+public class controlCategoria {
+    
+    
+    public boolean registrar(String nombre){
+        boolean registrar = false;
+        Connection con = null;
+        int id = 0;
         
-      
-            boolean registrar =false;
-            
-            Statement stm = null;
-            Connection con = null;
-            
-            String sql = "INSERT INTO municipio VALUES ( NULL,'"+muni.getNombre()+"')";
-            
-           try{ 
+        try{
             con = conexion.conectar();
-            stm = con.createStatement();
-            stm.execute(sql);
-            registrar = true;
-            stm.close();
-            con.close();
-        } catch (SQLException ex) {
-               System.out.println("Erro: clase municipio, no se pudo registrar ");
-               ex.printStackTrace();
+            CallableStatement proc = con.prepareCall(" CALL categoryAddOrEdit (?,?)");
+            proc.setInt("_id_categoria", id);
+            proc.setString("_nombre", nombre);
+            proc.execute();
+            
+        }catch(Exception e){
+            System.err.println(e);
         }
-           
-           return registrar;
+        return registrar;
     }
-
-    @Override
-    public boolean actualizar(municipio muni) {
+    
+    
+     public boolean actualizar(int id,String nombre) {
         
        
             Connection con = null;
             Statement stm = null;
-            
-            boolean actualizar =false;
-            String sql = "UPDATE municipio SET nombre ='"+muni.getNombre()+"'"+" WHERE id_municipio = "+ muni.getId();
-            
+            boolean actualizar = false;
+
             try{
-            
-            con = conexion.conectar();
-            stm = con.createStatement();
-            stm.execute(sql);
-            actualizar = true;
+                con = conexion.conectar();
+                CallableStatement proc = con.prepareCall(" CALL categoryAddOrEdit(?,?) ");
+                proc.setInt("_id_categoria", id);
+                proc.setString("_nombre", nombre);
+                proc.execute();
+                actualizar = true;
+                
         } catch (SQLException ex) {
                 System.out.println("Error: Clase municipio, no se puede actualizar");
                 ex.printStackTrace();
@@ -71,15 +65,14 @@ public class implementarMunicipio implements metodoMunicipio {
         return actualizar;
         
     }
-
-    @Override
+    
     public boolean eliminar(municipio muni) {
         
             Connection con = null;
             Statement stm = null;
             
             boolean eliminar = false;
-            String sql = "DELETE FROM municipio WHERE id_municipio = "+muni.getId();
+            String sql = "DELETE FROM categoria WHERE id_categoria = "+muni.getId();
             
             try{
             
@@ -93,20 +86,19 @@ public class implementarMunicipio implements metodoMunicipio {
         }
         
         return eliminar;
-      
+        
     }
-
-    @Override
-    public List<municipio> obtener() {
+    
+    
+    public List<categoria> obtener() {
         
         
             Connection con = null;
             Statement stm = null;
             ResultSet rs = null;
             
-            
-            String sql = "SELECT * FROM municipio ORDER BY id_municipio";
-            List<municipio> listMuni = new ArrayList<municipio>();
+            String sql = "SELECT * FROM categoria ORDER BY id_categoria";
+            List<categoria> listcat = new ArrayList<categoria>();
             
             
             try{
@@ -116,10 +108,10 @@ public class implementarMunicipio implements metodoMunicipio {
             rs = stm.executeQuery(sql);
             
             while(rs.next()){
-                municipio mu = new municipio();
-               mu.setId(rs.getInt(1));
-               mu.setNombre(rs.getString(2));
-               listMuni.add(mu);
+                categoria ca = new categoria();
+               ca.setId(rs.getInt(1));
+               ca.setNombre(rs.getString(2));
+               listcat.add(ca);
             }
             
             stm.close();
@@ -132,8 +124,11 @@ public class implementarMunicipio implements metodoMunicipio {
             
         }
         
-            return listMuni;
+            return listcat;
     }
+    
+    
+    
     
     
     

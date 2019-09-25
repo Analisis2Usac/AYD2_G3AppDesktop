@@ -41,6 +41,11 @@ public class categoria {
     }
     
     
+    public String toString(){
+        return this.nombre;
+    }
+    
+    
     
     
     

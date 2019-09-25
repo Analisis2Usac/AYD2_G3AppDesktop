@@ -8,6 +8,8 @@ package appdesktop;
 import controlador.controlCategoria;
 import controlador.controlMunicipio;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.UIManager;
 import modelos.categoria;
 import modelos.municipio;
 import vista.login;
@@ -23,32 +25,42 @@ public class AppDesktop {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    /*    System.out.println("Empezar el desarrollo");
+        System.out.println("Empezar el desarrollo");
         
-        System.out.println("Ingresar Municipio");
-        controlMunicipio muni = new controlMunicipio();
-        controlCategoria cat = new controlCategoria();
+     //   System.out.println("Ingresar Municipio");
+     //   controlMunicipio muni = new controlMunicipio();
+     //   controlCategoria cat = new controlCategoria();
         
         //muni.registrar("Honduras");
         
-        List<municipio> listaM = muni.obtener();
+     //   List<municipio> listaM = muni.obtener();
         
-        for(municipio item:listaM){
-            System.out.println("Este esto esta en la base de datos "+item.getNombre());
-        }
+     //   for(municipio item:listaM){
+     //       System.out.println("Este esto esta en la base de datos "+item.getNombre());
+     //   }
         
-        cat.registrar("Enfermeria");
+       // cat.registrar("Enfermeria");
         
-         List<categoria> listaC = cat.obtener();
+      //   List<categoria> listaC = cat.obtener();
         
-        for(categoria item:listaC){
-            System.out.println("Este esto esta en la base de datos "+item.getNombre());
-        }
+      //  for(categoria item:listaC){
+      //      System.out.println("Este esto esta en la base de datos "+item.getNombre());
+      //  }
         
-        */
+       
     
+    try{
+        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+
+    }catch(Exception e){
+            
+    }
+        
+        
+        
     login log = new login();
     log.setVisible(true);
+    log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         
         

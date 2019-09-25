@@ -68,13 +68,13 @@ public class controlMunicipio {
         
     }
     
-    public boolean eliminar(municipio muni) {
+    public boolean eliminar(int id) {
         
             Connection con = null;
             Statement stm = null;
             
             boolean eliminar = false;
-            String sql = "DELETE FROM municipio WHERE id_municipio = "+muni.getId();
+            String sql = "DELETE FROM municipio WHERE id_municipio = "+id;
             
             try{
             

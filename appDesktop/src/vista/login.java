@@ -121,6 +121,8 @@ public class login extends javax.swing.JFrame {
         if(usuario.equals("admin") && password.equals("admin")){
             
             JOptionPane.showMessageDialog(null,"Usuario y contraseña se ingresaron correctamente ");
+            panelPrincipal  panelMain= new panelPrincipal();
+            panelMain.setVisible(true);
             
             
             

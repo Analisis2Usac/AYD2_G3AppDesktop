@@ -27,35 +27,15 @@ public class AppDesktop {
         // TODO code application logic here
         System.out.println("Empezar el desarrollo");
         
-     //   System.out.println("Ingresar Municipio");
-     //   controlMunicipio muni = new controlMunicipio();
-     //   controlCategoria cat = new controlCategoria();
-        
-        //muni.registrar("Honduras");
-        
-     //   List<municipio> listaM = muni.obtener();
-        
-     //   for(municipio item:listaM){
-     //       System.out.println("Este esto esta en la base de datos "+item.getNombre());
-     //   }
-        
-       // cat.registrar("Enfermeria");
-        
-      //   List<categoria> listaC = cat.obtener();
-        
-      //  for(categoria item:listaC){
-      //      System.out.println("Este esto esta en la base de datos "+item.getNombre());
-      //  }
-        
-       
-    
     try{
-        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        //UIManager.setLookAndFeel("com.jtattoon.plaf.acryl.AcrylLookAndFeel");
 
+        //UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
+        UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
+        
     }catch(Exception e){
             
     }
-        
         
         
     login log = new login();

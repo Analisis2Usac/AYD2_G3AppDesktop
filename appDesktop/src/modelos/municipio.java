@@ -42,7 +42,7 @@ public class municipio {
     
     @Override
     public String toString(){
-        return "municipio{" + "Id = "+ id + ", Nombre = " + nombre +"}";  
+        return this.nombre;  
     }
    
 }

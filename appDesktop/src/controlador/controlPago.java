@@ -13,17 +13,16 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import modelos.categoria;
-import modelos.municipio;
 import servicios.conexion;
 
 /**
  *
  * @author luismiguel
  */
-public class controlCategoria {
+public class controlPago {
     
     
-    public boolean registrar(String nombre){
+     public boolean registrar(String nombre){
         boolean registrar = false;
         Connection con = null;
         int id = 0;

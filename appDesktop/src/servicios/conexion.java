@@ -20,9 +20,14 @@ public class conexion {
    public static Connection con = null;
    
     public static Connection conectar(){        
-        String password = "mago";
-        String usuario = "mago";
-        String url = "jdbc:mysql://35.224.248.152:3306/sis_db?user="+usuario+"&password="+password;
+        //String password = "mago";
+        //String usuario = "mago";
+        //String url = "jdbc:mysql://35.224.248.152:3306/sis_db?user="+usuario+"&password="+password;
+        
+        String password = "remote";
+        String usuario = "remote";
+        String url = "jdbc:mysql://35.222.148.179:3306/sis_db?user="+usuario+"&password="+password;
+        
         try {
             con = (Connection) DriverManager.getConnection(url);
             if(con != null){

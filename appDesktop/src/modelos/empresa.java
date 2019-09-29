@@ -21,6 +21,7 @@ public class empresa {
     private double longitud;
     private int id_municipio;
     private String email;
+    private String password;
 
     public empresa() {
         this.id = 0;
@@ -33,10 +34,11 @@ public class empresa {
         this.longitud = 0;
         this.id_municipio = 0;
         this.email = null;
+        this.password = null;
                
     }
 
-    public empresa(int id, int nit, String nombre, String direccion, String telefono, int zona, double latitud, double longitud, int id_municipio, String email) {
+    public empresa(int id, int nit, String nombre, String direccion, String telefono, int zona, double latitud, double longitud, int id_municipio, String email, String password) {
         this.id = id;
         this.nit = nit;
         this.nombre = nombre;
@@ -47,6 +49,7 @@ public class empresa {
         this.longitud = longitud;
         this.id_municipio = id_municipio;
         this.email = email;
+        this.password = password;
     }
 
     public int getId() {
@@ -128,7 +131,15 @@ public class empresa {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     
     
     

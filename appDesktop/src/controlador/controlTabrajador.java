@@ -12,28 +12,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import modelos.categoria;
-import modelos.municipio;
+import modelos.trabajador;
 import servicios.conexion;
 
 /**
  *
  * @author luismiguel
  */
-public class controlCategoria {
+public class controlTabrajador {
     
     
-    public boolean registrar(String nombre){
+     public boolean registrar(String email,int idEmpleado){
         boolean registrar = false;
         Connection con = null;
         int id = 0;
         
         try{
             con = conexion.conectar();
-            CallableStatement proc = con.prepareCall(" CALL categoryAddOrEdit (?,?)");
-            proc.setInt("_id_categoria", id);
-            proc.setString("_nombre", nombre);
+            
+            CallableStatement proc = con.prepareCall(" CALL trabajadorAddOrEdit (?,?,?)");
+
+            proc.setString("_email", email);
+            proc.setInt("_id_empleado", id);
+            proc.setInt("_id_empresa", idEmpleado);
             proc.execute();
+            
             
         }catch(Exception e){
             System.err.println(e);
@@ -42,7 +45,7 @@ public class controlCategoria {
     }
     
     
-     public boolean actualizar(int id,String nombre) {
+     public boolean actualizar(int id,int idEmpleado,String email) {
         
        
             Connection con = null;
@@ -51,10 +54,15 @@ public class controlCategoria {
 
             try{
                 con = conexion.conectar();
-                CallableStatement proc = con.prepareCall(" CALL categoryAddOrEdit(?,?) ");
-                proc.setInt("_id_categoria", id);
-                proc.setString("_nombre", nombre);
-                proc.execute();
+                
+            CallableStatement proc = con.prepareCall(" CALL trabajadorAddOrEdit (?,?,?)");
+
+            proc.setString("_email", email);
+            proc.setInt("_id_empleado", id);
+            proc.setInt("_id_empresa", idEmpleado);
+            proc.execute();
+
+                
                 actualizar = true;
                 
         } catch (SQLException ex) {
@@ -72,7 +80,7 @@ public class controlCategoria {
             Statement stm = null;
             
             boolean eliminar = false;
-            String sql = "DELETE FROM categoria WHERE id_categoria = "+id;
+            String sql = "DELETE FROM trabajador WHERE id_empleado = "+id;
             
             try{
             
@@ -90,15 +98,15 @@ public class controlCategoria {
     }
     
     
-    public List<categoria> obtener() {
+    public List<trabajador> obtener() {
         
         
             Connection con = null;
             Statement stm = null;
             ResultSet rs = null;
             
-            String sql = "SELECT * FROM categoria ORDER BY id_categoria";
-            List<categoria> listcat = new ArrayList<categoria>();
+            String sql = "SELECT * FROM trabajador ORDER BY id_empleado";
+            List<trabajador> list = new ArrayList<trabajador>();
             
             
             try{
@@ -108,10 +116,13 @@ public class controlCategoria {
             rs = stm.executeQuery(sql);
             
             while(rs.next()){
-                categoria ca = new categoria();
-               ca.setId(rs.getInt(1));
-               ca.setNombre(rs.getString(2));
-               listcat.add(ca);
+
+                trabajador t = new trabajador();
+               t.setIdEmpleado(rs.getInt(1));
+               t.setIdEmpresa(rs.getInt(2));
+               t.setEmail(rs.getString(3));
+               
+               list.add(t);
             }
             
             stm.close();
@@ -124,8 +135,10 @@ public class controlCategoria {
             
         }
         
-            return listcat;
+            return list;
     }
+    
+    
     
     
     

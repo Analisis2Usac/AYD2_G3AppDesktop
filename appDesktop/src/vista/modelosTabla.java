@@ -9,6 +9,7 @@ import controlador.controlCategoria;
 import controlador.controlEmpresa;
 import controlador.controlMunicipio;
 import controlador.controlServicio;
+import controlador.controlUsuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
@@ -18,6 +19,7 @@ import modelos.categoria;
 import modelos.empresa;
 import modelos.municipio;
 import modelos.servicio;
+import modelos.usuario;
 
 /**
  *
@@ -30,6 +32,7 @@ public class modelosTabla {
     controlCategoria cat = null;
     controlServicio ser = null;
     controlEmpresa emp = null;
+    controlUsuario usu = null;
     
     
     
@@ -231,6 +234,73 @@ public class modelosTabla {
                 fila[8] = e.getId_municipio();
                 fila[9] = e.getEmail();
                 fila[10] = e.getPassword();
+                fila[11] = btn1;
+                fila[12] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);
+    }
+    
+    
+     public void modeloTUsuario(JTable tabla){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("EMAIL");
+       d.addColumn("CONTRASEÑA");
+       d.addColumn("DPI");
+       d.addColumn("NOMBRE");
+       d.addColumn("APELLIDO");
+       d.addColumn("DIRECCION");
+       d.addColumn("TELEFONO");
+       d.addColumn("ZONA");
+       d.addColumn("LATITUD");
+       d.addColumn("LONGITUD");
+       d.addColumn("MUNICIPIO");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+        usu = new controlUsuario();
+        usuario u = new usuario();
+        
+        
+        
+        List<usuario> list = usu.obtener();
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                u = list.get(i);
+                
+                fila[0] = u.getEmail();
+                fila[1] = u.getPassword();
+                fila[2] = u.getDpi();
+                fila[3] = u.getNombre();
+                fila[4] = u.getApellido();
+                fila[5] = u.getDireccion();
+                fila[6] = u.getTelefono();
+                fila[7] = u.getZona();
+                fila[8] = u.getLatitud();
+                fila[9] = u.getLongitud();
+                fila[10] = u.getId_municipio();
                 fila[11] = btn1;
                 fila[12] = btn2;
                 d.addRow(fila);

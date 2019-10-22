@@ -53,11 +53,11 @@ public class render extends DefaultTableCellHeaderRenderer {
         }
         
         JTableHeader header = jtable.getTableHeader();
-        header.setBackground(Color.lightGray);
+        header.setBackground(Color.GRAY);
         
        final Component c = super.getTableCellRendererComponent(jtable, o, bln,bln1,i,i1);
        
-        c.setBackground(i % 2 == 1 ? Color.LIGHT_GRAY : Color.WHITE);
+        c.setBackground(i % 2 == 1 ? Color.green : Color.WHITE);
         return c;
     
         

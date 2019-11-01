@@ -14,14 +14,19 @@ public class servicio {
     private int id;
     private String nombre;
     private int id_categoria;
-
+    
+    public servicio(int id,String nombre){
+        this.id = id;
+        this.nombre = nombre;
+    }
+    
     public servicio() {
         
        this.id = 0;
        this.nombre = null;
        this.id_categoria = 0;
     }
-
+   
     public servicio(int id, String nombre, int id_categoria) {
         this.id = id;
         this.nombre = nombre;
@@ -50,6 +55,11 @@ public class servicio {
 
     public void setId_categoria(int id_categoria) {
         this.id_categoria = id_categoria;
+    }
+    
+    @Override
+    public String toString(){
+        return this.getNombre();
     }
     
     

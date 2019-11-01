@@ -5,21 +5,41 @@
  */
 package vista;
 
+import controlador.controlCalificacion;
 import controlador.controlCategoria;
+import controlador.controlComentario;
+import controlador.controlDContrato;
+import controlador.controlDocumento;
 import controlador.controlEmpresa;
+import controlador.controlFoto;
 import controlador.controlMunicipio;
+import controlador.controlPago;
 import controlador.controlServicio;
+import controlador.controlSuscripcion;
+import controlador.controlTabrajador;
 import controlador.controlUsuario;
+import controlador.controlVideo;
+import controlador.controllistaServicio;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelos.calificacion;
 import modelos.categoria;
+import modelos.comentario;
+import modelos.detalleContrato;
+import modelos.documento;
 import modelos.empresa;
+import modelos.foto;
+import modelos.lista_servicio;
 import modelos.municipio;
+import modelos.pago;
 import modelos.servicio;
+import modelos.suscripcion;
+import modelos.trabajador;
 import modelos.usuario;
+import modelos.video;
 
 /**
  *
@@ -28,15 +48,41 @@ import modelos.usuario;
 public class modelosTabla {
     
     
-    controlMunicipio muni = null;
-    controlCategoria cat = null;
-    controlServicio ser = null;
-    controlEmpresa emp = null;
-    controlUsuario usu = null;
+//    controlMunicipio muni = null;
+//    controlCategoria cat = null;
+//    controlServicio ser = null;
+//    controlEmpresa emp = null;
+//    controlUsuario usu = null;
+//    controlPago pag = null;
+//    controlTabrajador tra = null;
+//    controllistaServicio ls = null;
+//    controlDContrato dc = null;
+//    controlComentario cm = null;
+//    controlCalificacion ca = null;
+//    controlFoto cf = null;
+//    controlVideo vi = null;
+//    controlDocumento doc = null;
+//    controlSuscripcion sus = null;
     
     
+    controlMunicipio muni = new controlMunicipio();
+    controlCategoria cat = new controlCategoria();
+    controlServicio ser = new controlServicio();
+    controlEmpresa emp = new controlEmpresa();
+    controlUsuario usu = new controlUsuario();
+    controlPago pag = new controlPago();
+    controlTabrajador tra = new controlTabrajador();
+    controllistaServicio ls = new controllistaServicio();
+    controlDContrato dc = new controlDContrato();
+    controlComentario cm = new controlComentario();
+    controlCalificacion ca = new controlCalificacion();
+    controlFoto cf = new controlFoto();
+    controlVideo vi = new controlVideo();
+    controlDocumento doc = new controlDocumento();
+    controlSuscripcion sus = new controlSuscripcion();
     
-    public void modeloTMunicipio(JTable tabla){
+    
+    public void modeloTMunicipio(JTable tabla,List<municipio> lista){
         
         tabla.setDefaultRenderer(Object.class,new render());
 
@@ -58,10 +104,10 @@ public class modelosTabla {
         JButton btn2 = new JButton("Eliminar");
         btn2.setName("e");
         
-        muni = new controlMunicipio();
+        //muni = new controlMunicipio();
         municipio m = new municipio();
         
-        ArrayList<municipio> list =(ArrayList<municipio>)muni.obtener();
+        ArrayList<municipio> list =(ArrayList<municipio>) lista;
         
         if(list.size() > 0){
             for(int i = 0;i<list.size();i++){
@@ -82,7 +128,7 @@ public class modelosTabla {
     }
    
     
-    public void modeloTServicio(JTable tabla){
+    public void modeloTServicio(JTable tabla,List<servicio> listaServicio){
         
         tabla.setDefaultRenderer(Object.class,new render());
         
@@ -103,11 +149,11 @@ public class modelosTabla {
         JButton btn2 = new JButton("Eliminar");
         btn2.setName("e");
         
-        ser = new controlServicio();
+       // ser = 
         servicio s = new servicio();
         
         
-        List<servicio> list = ser.obtener();
+        List<servicio> list = listaServicio;
         
         if(list.size() > 0){
             for(int i = 0;i<list.size();i++){
@@ -130,7 +176,7 @@ public class modelosTabla {
     }
     
     
-    public void modeloTCategoria(JTable tabla){
+    public void modeloTCategoria(JTable tabla,List<categoria> lista){
         
         
        tabla.setDefaultRenderer(Object.class,new render());
@@ -154,10 +200,10 @@ public class modelosTabla {
         JButton btn2 = new JButton("Eliminar");
         btn2.setName("e");
         
-        cat = new controlCategoria();
+        //cat = new controlCategoria();
         categoria c = new categoria();
         
-        List<categoria> list = cat.obtener();
+        List<categoria> list = lista;
         
         if(list.size()>0){
             
@@ -179,7 +225,7 @@ public class modelosTabla {
    }
     
     
-    public void modeloTEmpresa(JTable tabla){
+    public void modeloTEmpresa(JTable tabla,List<empresa> lista){
         
         
          tabla.setDefaultRenderer(Object.class,new render());
@@ -211,12 +257,12 @@ public class modelosTabla {
         btn2.setName("e");
         
         
-        emp = new controlEmpresa();
+        //emp = new controlEmpresa();
         empresa e = new empresa();
         
         
         
-        List<empresa> list = emp.obtener();
+        List<empresa> list = lista;
         
         if(list.size()>0){
             
@@ -246,7 +292,7 @@ public class modelosTabla {
     }
     
     
-     public void modeloTUsuario(JTable tabla){
+     public void modeloTUsuario(JTable tabla,List<usuario> lista){
         
         
          tabla.setDefaultRenderer(Object.class,new render());
@@ -277,12 +323,12 @@ public class modelosTabla {
         JButton btn2 = new JButton("Eliminar");
         btn2.setName("e");
        
-        usu = new controlUsuario();
+       // usu = new controlUsuario();
         usuario u = new usuario();
         
         
         
-        List<usuario> list = usu.obtener();
+        List<usuario> list = lista;
         
         if(list.size()>0){
             
@@ -310,16 +356,562 @@ public class modelosTabla {
         
         tabla.setModel(d);
         tabla.setRowHeight(25);
-        
-        
-        
     }
     
-    
-    
-    
-    
-    
-    
-    
+      public void modeloTPago(JTable tabla,List<pago> lista){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("FORMA");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+       // pag = new controlPago();
+        pago p = new pago();
+        
+        
+        
+        List<pago> list = lista;
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                p = list.get(i);
+                
+                fila[0] = p.getIdpago();
+                fila[1] = p.getForma();
+                fila[2] = btn1;
+                fila[3] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+      
+      
+      
+      //************************ Modelo tabla tabajador
+      
+      
+       public void modeloTTrabajador(JTable tabla,List<trabajador> lista){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("EMPRESA");
+       d.addColumn("EMAIL");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+       // tra = new controlTabrajador();
+        trabajador t = new trabajador();
+        
+        
+        
+        List<trabajador> list = lista;
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                t = list.get(i);
+                
+                fila[0] = t.getIdEmpleado();
+                fila[1] = emp.nombreEmpresa(t.getIdEmpresa());
+                fila[2] = t.getEmail();
+                fila[3] = btn1;
+                fila[4] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+       
+       
+    //********************* listado de servicio 
+       
+       
+        public void modeloLServicio(JTable tabla,List<lista_servicio> lista){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("EMPRESA");
+       d.addColumn("SERVICIO");
+       d.addColumn("COSTO");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+       // ls = new controllistaServicio();
+        lista_servicio lss = new lista_servicio();
+        
+        
+        
+        List<lista_servicio> list = lista;
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                lss = list.get(i);
+                
+                fila[0] = emp.nombreEmpresa(lss.getId_empresa());
+                fila[1] = ser.nombreServicio(lss.getId_servicio());
+                fila[2] = lss.getPrecio();
+                fila[3] = btn1;
+                fila[4] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+        
+        
+        
+        //********************* MODELO DETALLE CONTRATO
+       
+       
+        public void modeloTLContrato(JTable tabla){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("FECHA");
+       d.addColumn("EMPRESA");
+       d.addColumn("SERVICIO");
+       d.addColumn("PAGO");
+       d.addColumn("EMAIL");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+      //  dc = new controlDContrato();
+        detalleContrato dtc;
+        
+        
+        
+        List<detalleContrato> list = dc.obtener();
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                dtc = list.get(i);
+                
+                fila[0] = dtc.getIdContrato();
+                fila[1] = dtc.getFecha();
+                fila[2] = dtc.getIdEmpresa();
+                fila[3] = dtc.getIdServicio();
+                fila[4] = dtc.getPago();
+                fila[5] = dtc.getEmail();
+                fila[6] = btn1;
+                fila[7] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+        
+        
+         //********************* MODELO COMENTARIO
+       
+       
+        public void modeloTComentario(JTable tabla){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("COMENTARIO");
+       d.addColumn("CONTRATO");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+       // cm = new controlComentario();
+        comentario cmt;
+        
+        
+        
+        List<comentario> list = cm.obtener();
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                cmt = list.get(i);
+                
+                fila[0] = cmt.getIdComentario();
+                fila[1] = cmt.getComentario();
+                fila[2] = cmt.getIdContrato();
+                fila[6] = btn1;
+                fila[7] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+        
+        
+         //********************* MODELO COMENTARIO
+       
+       
+        public void modeloTCalificacion(JTable tabla){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("CALIFICACION");
+       d.addColumn("CONTRATO");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+       // ca = new controlCalificacion();
+            calificacion cal;
+        
+        
+        
+        List<calificacion> list = ca.obtener();
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                cal = list.get(i);
+                
+                fila[0] = cal.getIdCalificacion();
+                fila[1] = cal.getCalificacion();
+                fila[2] = cal.getIdContrato();
+                fila[3] = btn1;
+                fila[4] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+        
+        
+          
+         //********************* MODELO FOTOGRAFIA
+       
+       
+        public void modeloTFoto(JTable tabla,List<foto> lista){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("RUTA");
+       d.addColumn("EMPLEADO");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+        // cf = new controlFoto();
+            foto f;
+        
+        
+        
+        List<foto> list = lista;
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                f = list.get(i);
+                
+                fila[0] = f.getIdFoto();
+                fila[1] = f.getRuta();
+                fila[2] = f.getIdEmpleado();
+                fila[3] = btn1;
+                fila[4] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+        
+        
+             
+         //********************* MODELO VIDEO
+       
+       
+        public void modeloTVideo(JTable tabla){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("RUTA");
+       d.addColumn("EMPLEADO");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+        btn1.setName("m");
+        JButton btn2 = new JButton("Eliminar");
+        btn2.setName("e");
+       
+       // vi = new controlVideo();
+            video v;
+        
+        
+        
+        List<video> list = vi.obtener();
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                v = list.get(i);
+                
+                fila[0] = v.getIdVideo();
+                fila[1] = v.getRuta();
+                fila[2] = v.getIdEmpleado();
+                fila[3] = btn1;
+                fila[4] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+        
+        
+        //********************* MODELO DOCUMENTO
+      
+        
+        public void modeloTDocumento(JTable tabla){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("DOCUMENTO");
+       d.addColumn("EMPLEADO");
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+       btn1.setName("m");
+       JButton btn2 = new JButton("Eliminar");
+       btn2.setName("e");
+       
+       // doc = new controlDocumento();
+        documento dc;
+        
+        
+        
+        List<documento> list = doc.obtener();
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                dc= list.get(i);
+                
+                fila[0] = dc.getIdDocumento();
+                fila[1] = dc.getDocumento();
+                fila[2] = dc.getIdEmpleado();
+                fila[3] = btn1;
+                fila[4] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+        
+        
+        //********************* MODELO SUSCRIPCION
+      
+        
+        public void modeloTSuscripcion(JTable tabla){
+        
+        
+         tabla.setDefaultRenderer(Object.class,new render());
+       
+       DefaultTableModel d = new DefaultTableModel(){
+          public boolean isCellEditable(int row,int column){
+              return false;
+          }  
+          
+        };
+       
+       d.addColumn("CODIGO");
+       d.addColumn("FECHAINICIO");
+       d.addColumn("FECHAFIN");
+       d.addColumn("LIMITESERVICIO");
+       d.addColumn("EMPRESA");
+       d.addColumn("TOTAL");
+       
+       d.addColumn("MODIFY");
+       d.addColumn("DELETE");       
+       
+       JButton btn1 = new JButton("Modificar");
+       btn1.setName("m");
+       JButton btn2 = new JButton("Eliminar");
+       btn2.setName("e");
+       
+       // sus = new controlSuscripcion();
+        suscripcion s;
+        
+        
+        
+        List<suscripcion> list = sus.obtener();
+        
+        if(list.size()>0){
+            
+            for(int i=0;i<list.size();i++){
+                Object fila[] = new Object[13];
+                s= list.get(i);
+                
+                fila[0] = s.getId();
+                fila[2] = s.getInicioFecha();
+                fila[3] = s.getFinFecha();
+                fila[4] = s.getLimiteServicio();
+                fila[5] = s.getIdEmpresa();
+                fila[1] = s.getTotal();
+                
+                fila[6] = btn1;
+                fila[7] = btn2;
+                d.addRow(fila);
+            }
+            
+        }
+        
+        tabla.setModel(d);
+        tabla.setRowHeight(25);  
+    }
+        
+        
+      
+      
+
 }

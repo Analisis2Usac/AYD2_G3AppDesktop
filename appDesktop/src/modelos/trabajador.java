@@ -27,7 +27,7 @@ public class trabajador {
         this.idEmpresa = idEmpresa;
         this.email = email;
     }
-
+    
     public int getIdEmpleado() {
         return idEmpleado;
     }
@@ -50,6 +50,10 @@ public class trabajador {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String toString(){
+        return Integer.toString(this.idEmpleado);
     }
     
    

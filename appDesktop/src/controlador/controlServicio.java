@@ -124,6 +124,35 @@ public class controlServicio {
      }
      
      
+     public String nombreServicio(int id){
+         Connection con  = null;
+         Statement stm = null;
+         ResultSet rs = null;
+         String sql = "SELECT* from servicio where id_servicio = " + id;
+         String nombre = "";
+         
+         try {
+             con = conexion.conectar();
+             stm = con.createStatement();
+             rs = stm.executeQuery(sql);
+             
+            if(rs.next()){
+            nombre = rs.getString(2);
+            }
+             
+            rs.close();
+            stm.close();
+            con.close();
+            
+             
+             
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         return nombre;
+     }
+     
+     
      public String nombreCategoria(int id){
          Connection con  = null;
          Statement stm = null;

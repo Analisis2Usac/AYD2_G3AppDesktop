@@ -25,6 +25,7 @@ public class usuario {
     
 
 
+    
 
 public usuario(){
 
@@ -53,6 +54,10 @@ public usuario(){
         this.latitud = latitud;
         this.longitud = longitud;
         this.id_municipio = id_municipio;
+    }
+    
+    public usuario(String email){
+        this.email = email;
     }
 
     public String getEmail() {
@@ -141,6 +146,11 @@ public usuario(){
 
     public void setId_municipio(int id_municipio) {
         this.id_municipio = id_municipio;
+    }
+    
+    @Override
+    public String toString(){
+        return this.email;
     }
 
 

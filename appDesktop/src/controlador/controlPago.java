@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import modelos.categoria;
+import modelos.pago;
 import servicios.conexion;
 
 /**
@@ -22,16 +23,16 @@ import servicios.conexion;
 public class controlPago {
     
     
-     public boolean registrar(String nombre){
+     public boolean registrar(String forma){
         boolean registrar = false;
         Connection con = null;
         int id = 0;
         
         try{
             con = conexion.conectar();
-            CallableStatement proc = con.prepareCall(" CALL categoryAddOrEdit (?,?)");
-            proc.setInt("_id_categoria", id);
-            proc.setString("_nombre", nombre);
+            CallableStatement proc = con.prepareCall(" CALL formaAddOrEdit (?,?)");
+            proc.setInt("_id_pago", id);
+            proc.setString("_forma", forma);
             proc.execute();
             
         }catch(Exception e){
@@ -41,7 +42,7 @@ public class controlPago {
     }
     
     
-     public boolean actualizar(int id,String nombre) {
+     public boolean actualizar(int id,String forma) {
         
        
             Connection con = null;
@@ -50,9 +51,9 @@ public class controlPago {
 
             try{
                 con = conexion.conectar();
-                CallableStatement proc = con.prepareCall(" CALL categoryAddOrEdit(?,?) ");
-                proc.setInt("_id_categoria", id);
-                proc.setString("_nombre", nombre);
+                CallableStatement proc = con.prepareCall(" CALL formaAddOrEdit (?,?) ");
+                proc.setInt("_id_pago", id);
+                proc.setString("_forma", forma);
                 proc.execute();
                 actualizar = true;
                 
@@ -71,7 +72,7 @@ public class controlPago {
             Statement stm = null;
             
             boolean eliminar = false;
-            String sql = "DELETE FROM categoria WHERE id_categoria = "+id;
+            String sql = "DELETE FROM forma_pago WHERE id_pago = "+id;
             
             try{
             
@@ -89,15 +90,15 @@ public class controlPago {
     }
     
     
-    public List<categoria> obtener() {
+    public List<pago> obtener() {
         
         
             Connection con = null;
             Statement stm = null;
             ResultSet rs = null;
             
-            String sql = "SELECT * FROM categoria ORDER BY id_categoria";
-            List<categoria> listcat = new ArrayList<categoria>();
+            String sql = "SELECT * FROM forma_pago ORDER BY id_pago";
+            List<pago> listPago = new ArrayList<pago>();
             
             
             try{
@@ -107,10 +108,10 @@ public class controlPago {
             rs = stm.executeQuery(sql);
             
             while(rs.next()){
-                categoria ca = new categoria();
-               ca.setId(rs.getInt(1));
-               ca.setNombre(rs.getString(2));
-               listcat.add(ca);
+               pago ca = new pago();
+               ca.setIdpago(rs.getInt(1));
+               ca.setForma(rs.getString(2));
+               listPago.add(ca);
             }
             
             stm.close();
@@ -123,15 +124,12 @@ public class controlPago {
             
         }
         
-            return listcat;
+            return listPago;
     }
     
     
     
-    
-    
-    
-    
+
     
     
 }

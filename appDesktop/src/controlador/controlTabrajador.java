@@ -22,7 +22,7 @@ import servicios.conexion;
 public class controlTabrajador {
     
     
-     public boolean registrar(String email,int idEmpleado){
+     public boolean registrar(int idEmpresa,String email){
         boolean registrar = false;
         Connection con = null;
         int id = 0;
@@ -32,12 +32,12 @@ public class controlTabrajador {
             
             CallableStatement proc = con.prepareCall(" CALL trabajadorAddOrEdit (?,?,?)");
 
-            proc.setString("_email", email);
             proc.setInt("_id_empleado", id);
-            proc.setInt("_id_empresa", idEmpleado);
+            proc.setInt("_id_empresa", idEmpresa);
+            proc.setString("_email", email);
             proc.execute();
             
-            
+
         }catch(Exception e){
             System.err.println(e);
         }
@@ -45,7 +45,7 @@ public class controlTabrajador {
     }
     
     
-     public boolean actualizar(int id,int idEmpleado,String email) {
+     public boolean actualizar(int id,int idEmpresa,String email) {
         
        
             Connection con = null;
@@ -56,14 +56,14 @@ public class controlTabrajador {
                 con = conexion.conectar();
                 
             CallableStatement proc = con.prepareCall(" CALL trabajadorAddOrEdit (?,?,?)");
-
-            proc.setString("_email", email);
+            
             proc.setInt("_id_empleado", id);
-            proc.setInt("_id_empresa", idEmpleado);
+            proc.setInt("_id_empresa", idEmpresa);
+            proc.setString("_email", email);
+            
             proc.execute();
-
-                
-                actualizar = true;
+            
+            actualizar = true;
                 
         } catch (SQLException ex) {
                 System.out.println("Error: Clase municipio, no se puede actualizar");
@@ -117,7 +117,7 @@ public class controlTabrajador {
             
             while(rs.next()){
 
-                trabajador t = new trabajador();
+               trabajador t = new trabajador();
                t.setIdEmpleado(rs.getInt(1));
                t.setIdEmpresa(rs.getInt(2));
                t.setEmail(rs.getString(3));

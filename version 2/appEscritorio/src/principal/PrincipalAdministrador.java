@@ -813,6 +813,14 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
 
     private void jLabel43MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel43MouseClicked
         // TODO add your handling code here:
+         if (estacerrado(vCategoria)) {
+            vCategoria = new categoria();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            vCategoria.setSize(width, Height);
+            escritorio.add(vCategoria);
+            vCategoria.show();
+        }
     }//GEN-LAST:event_jLabel43MouseClicked
 
     private void jLabel45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel45MouseClicked
@@ -884,22 +892,62 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
 
     private void btnMunicipio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio3ActionPerformed
         // TODO add your handling code here:
+          if (estacerrado(venEmpresa)) {
+            venEmpresa = new vEmpresa();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venEmpresa.setSize(width, Height);
+            escritorio.add(venEmpresa);
+            venEmpresa.show();
+        }
     }//GEN-LAST:event_btnMunicipio3ActionPerformed
 
     private void btnMunicipio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio4ActionPerformed
         // TODO add your handling code here:
+         if (estacerrado(venUsuario)) {
+            venUsuario = new VUsuario();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venUsuario.setSize(width, Height);
+            escritorio.add(venUsuario);
+            venUsuario.show();
+        }
     }//GEN-LAST:event_btnMunicipio4ActionPerformed
 
     private void btnMunicipio5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio5ActionPerformed
         // TODO add your handling code here:
+         if (estacerrado(venLServicio)) {
+            venLServicio = new VLServicio();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venLServicio.setSize(width, Height);
+            escritorio.add(venLServicio);
+            venLServicio.show();
+        }
     }//GEN-LAST:event_btnMunicipio5ActionPerformed
 
     private void btnMunicipio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio6ActionPerformed
         // TODO add your handling code here:
+         if (estacerrado(venContrato)) {
+            venContrato = new VContrato();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venContrato.setSize(width, Height);
+            escritorio.add(venContrato);
+            venContrato.show();
+        }
     }//GEN-LAST:event_btnMunicipio6ActionPerformed
 
     private void btnMunicipio7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio7ActionPerformed
         // TODO add your handling code here:
+         if (estacerrado(venVFPago)) {
+            venVFPago = new VFPago();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venVFPago.setSize(width, Height);
+            escritorio.add(venVFPago);
+            venVFPago.show();
+        }
     }//GEN-LAST:event_btnMunicipio7ActionPerformed
 
     /**

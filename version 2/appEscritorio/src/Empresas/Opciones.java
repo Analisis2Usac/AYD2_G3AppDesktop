@@ -118,15 +118,31 @@ public class Opciones {
                 
                 datos[0] = Integer.toString(rs.getInt("id_empresa"));
                 datos[1] = Integer.toString(rs.getInt("nit"));
-                datos[2] = rs.getString("nombre");
-                datos[3] = rs.getString("direccion");
-                datos[4] = rs.getString("telefono");
+                
+                //datos[2] = rs.getString("nombre");
+                String nombre =  (rs.getString("nombre")== null) ? "vacio" : rs.getString("nombre");
+                datos[2] = nombre;
+                
+                //datos[3] = rs.getString("direccion");
+                String dir =  (rs.getString("direccion")== null) ? "vacio" : rs.getString("direccion");
+                datos[3] = dir;
+                
+                //datos[4] = rs.getString("telefono");
+                String tel =  (rs.getString("telefono")== null) ? "vacio" : rs.getString("telefono");
+                datos[4] = tel;
+                
                 datos[5] = Integer.toString(rs.getInt("zona"));
                 datos[6] = Double.toString(rs.getDouble("latitud"));
                 datos[7] = Double.toString(rs.getDouble("longitud"));
                 datos[8] = Integer.toString(rs.getInt("id_municipio"));
-                datos[9] = rs.getString("email");
-                datos[10] = rs.getString("password");
+                
+                //datos[9] = rs.getString("email");
+                String email =  (rs.getString("email")== null) ? "vacio" : rs.getString("email");
+                datos[9] = email;
+                
+                //datos[10] = rs.getString("password");
+                String pass =  (rs.getString("password")== null) ? "vacio" : rs.getString("password");
+                datos[10] = pass;
                 
                 modelo.addRow(datos);
             }

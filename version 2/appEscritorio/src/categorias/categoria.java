@@ -7,6 +7,7 @@ package categorias;
 
 import alertas.principal.ErrorAlert;
 import alertas.principal.WarningAlerCat;
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.ListSelectionModel;
 import tabla.EstiloTablaHeader;
@@ -316,18 +317,24 @@ public class categoria extends javax.swing.JInternalFrame {
                 er.msj1.setText("REGISTRO");
                 er.setVisible(true);
             } else {
-
+                
                 int fila = this.tabla.getSelectedRow();
-
+               
                 ModalCategoria mp = new ModalCategoria(new JFrame(), true);
                 mp.id.setText(this.tabla.getValueAt(fila, 0).toString());
                 mp.codigo.setText(this.tabla.getValueAt(fila, 0).toString());
                 mp.nombre.setText(this.tabla.getValueAt(fila, 1).toString());
                 mp.ruta.setText(this.tabla.getValueAt(fila,2).toString());
                 
+                if(tabla.getValueAt(fila,2).toString() == null){
+                    System.err.println("es nullo");
+                }
+                
                 mp.titulo.setText("MODIFICAR");
                 mp.registrar.setText("GUARDAR");
                 mp.setVisible(true);
+                
+                  
             }
         }
     }//GEN-LAST:event_modificar1ActionPerformed

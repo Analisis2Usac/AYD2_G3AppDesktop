@@ -180,15 +180,21 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_cerrarActionPerformed
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
-        /*if(this.txtUsuario.getText().equals("") || this.txtPassword.getText().equals("")){
+        if(this.txtUsuario.getText().equals("") || this.txtPassword.getText().equals("")){
             this.info.setText("¡ USUARIO Y CONTRASEÑA REQUERIDOS !");
             this.txtUsuario.requestFocus();
         }else{
-            Opciones.verifica(this.txtUsuario.getText(), this.txtPassword.getText(), this);
+            System.out.println();
+            if(txtUsuario.getText().equals("admin") && txtPassword.getText().equals("admin")){
+                new principal.PrincipalAdministrador().setVisible(true);
+            }else{
+                this.info.setText("¡ USUARIO Y CONTRASEÑA INVALIDOS !");
+                this.txtUsuario.requestFocus();
+            }
             
-        }*/
+        }
         
-        new principal.PrincipalAdministrador().setVisible(true);
+        
         
     }//GEN-LAST:event_btnVentasActionPerformed
 

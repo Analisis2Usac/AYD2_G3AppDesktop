@@ -23,7 +23,7 @@ public class usuario {
     private double longitud;
     private int idmunicipio;
     
-    public usuario(String email,String nombre){
+     public usuario(String email,String nombre){
         this.email = email;
         this.nombre = nombre;
     }
@@ -130,11 +130,10 @@ public class usuario {
         this.idmunicipio = idmunicipio;
     }
     
-    @Override
+    
     public String toString(){
         return this.nombre;
     }
-    
     
     
 }

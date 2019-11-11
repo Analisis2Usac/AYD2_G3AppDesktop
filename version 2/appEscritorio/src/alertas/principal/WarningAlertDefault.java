@@ -237,6 +237,48 @@ public class WarningAlertDefault extends javax.swing.JDialog {
         
         }
             
+        } else if(variablesGlobales.variablesEstaticas.deleteOption.equals("DVideo")){
+            
+         int elimina = videos.Opciones.eliminar(Integer.parseInt(this.id.getText()));
+        if (elimina != 0) {
+            videos.Opciones.listar("");
+            this.dispose();
+            SuccessAlert sa = new SuccessAlert(new JFrame(), true);
+            sa.titulo.setText("¡HECHO!");
+            sa.msj.setText("SE HA ELIMINADO UN");
+            sa.msj1.setText("REGISTRO");
+            sa.setVisible(true);
+        
+        }
+            
+        } else if(variablesGlobales.variablesEstaticas.deleteOption.equals("DFoto")){
+            
+         int elimina = fotos.Opciones.eliminar(Integer.parseInt(this.id.getText()));
+        if (elimina != 0) {
+            fotos.Opciones.listar("");
+            this.dispose();
+            SuccessAlert sa = new SuccessAlert(new JFrame(), true);
+            sa.titulo.setText("¡HECHO!");
+            sa.msj.setText("SE HA ELIMINADO UN");
+            sa.msj1.setText("REGISTRO");
+            sa.setVisible(true);
+        
+        }
+            
+        } else if(variablesGlobales.variablesEstaticas.deleteOption.equals("DDocumento")){
+            
+         int elimina = Documento.Opciones.eliminar(Integer.parseInt(this.id.getText()));
+        if (elimina != 0) {
+            Documento.Opciones.listar("");
+            this.dispose();
+            SuccessAlert sa = new SuccessAlert(new JFrame(), true);
+            sa.titulo.setText("¡HECHO!");
+            sa.msj.setText("SE HA ELIMINADO UN");
+            sa.msj1.setText("REGISTRO");
+            sa.setVisible(true);
+        
+        }
+            
         }
            
             

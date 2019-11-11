@@ -78,9 +78,9 @@ public class VEmpleado extends javax.swing.JInternalFrame {
         setBorder(dropShadowBorder1);
         setOpaque(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 153));
 
-        jPanel2.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 153));
 
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
         cerrar.setForeground(new java.awt.Color(58, 159, 171));
@@ -130,7 +130,7 @@ public class VEmpleado extends javax.swing.JInternalFrame {
                     .addContainerGap()))
         );
 
-        jPanel7.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel7.setBackground(new java.awt.Color(0, 0, 0));
 
         tabla.setBackground(new java.awt.Color(204, 204, 204));
         tabla.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -194,7 +194,7 @@ public class VEmpleado extends javax.swing.JInternalFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/productos/campo-buscar.png"))); // NOI18N
 
-        modificar1.setBackground(new java.awt.Color(58, 159, 171));
+        modificar1.setBackground(new java.awt.Color(204, 102, 0));
         modificar1.setForeground(new java.awt.Color(255, 255, 255));
         modificar1.setText("MODIFICAR");
         modificar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -205,7 +205,7 @@ public class VEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        eliminar1.setBackground(new java.awt.Color(58, 159, 171));
+        eliminar1.setBackground(new java.awt.Color(204, 0, 0));
         eliminar1.setForeground(new java.awt.Color(255, 255, 255));
         eliminar1.setText("ELIMINAR");
         eliminar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -216,9 +216,9 @@ public class VEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        nuevo1.setBackground(new java.awt.Color(58, 159, 171));
+        nuevo1.setBackground(new java.awt.Color(0, 153, 0));
         nuevo1.setForeground(new java.awt.Color(255, 255, 255));
-        nuevo1.setText("NUEVO PRODUCTO");
+        nuevo1.setText("EMPLEADO NUEVO");
         nuevo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         nuevo1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         nuevo1.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +299,7 @@ public class VEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cerrarActionPerformed
 
     private void nuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevo1ActionPerformed
-        ModalMunicipio mp = new ModalMunicipio(new JFrame(), true);
+        ModalEmpleado mp = new ModalEmpleado(new JFrame(), true);
         mp.titulo.setText("REGISTRAR");
         mp.registrar.setText("REGISTRAR");
         mp.setVisible(true);
@@ -323,10 +323,11 @@ public class VEmpleado extends javax.swing.JInternalFrame {
 
                 int fila = this.tabla.getSelectedRow();
 
-                ModalMunicipio mp = new ModalMunicipio(new JFrame(), true);
+                ModalEmpleado mp = new ModalEmpleado(new JFrame(), true);
                 mp.id.setText(this.tabla.getValueAt(fila, 0).toString());
-                mp.codigo.setText(this.tabla.getValueAt(fila, 0).toString());
-                mp.nombre.setText(this.tabla.getValueAt(fila, 1).toString());
+                
+                variablesGlobales.variablesEstaticas.id_empresa = Integer.parseInt(tabla.getValueAt(fila, 1).toString());
+                variablesGlobales.variablesEstaticas.id_usuario = tabla.getValueAt(fila, 2).toString();
                 
                 mp.titulo.setText("MODIFICAR");
                 mp.registrar.setText("GUARDAR");
@@ -363,7 +364,7 @@ public class VEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_eliminar1ActionPerformed
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        municipios.Opciones.listar(this.buscar.getText());
+        empleados.Opciones.listar(this.buscar.getText());
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped

@@ -11,9 +11,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import videos.video;
 
 /**
  *
@@ -25,6 +27,42 @@ public class Opciones {
      static ConexionBD cc = new ConexionBD();
     static Connection cn = cc.conexion();
     static PreparedStatement ps;
+    
+    
+      public static int registrar(empleados.Sentencias uc) {
+        int rsu = 0;
+        int codigo = 0;
+        String sql = empleados.Sentencias.REGISTRAR;
+        try {
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, codigo);
+            ps.setInt(2, uc.getIdEmpresa());
+            ps.setString(3, uc.getEmail());
+            
+            rsu = ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        System.out.println(sql);
+        return rsu;
+    }
+
+    public static int actualizar(empleados.Sentencias uc) {
+        int rsu = 0;
+        String sql = empleados.Sentencias.ACTUALIZAR;
+        try {
+            ps = cn.prepareStatement(sql);
+            
+            ps.setInt(1,uc.getIdEmpresa());
+            ps.setString(2, uc.getEmail());
+            ps.setInt(3,uc.getIdEmpeado());
+            
+            rsu = ps.executeUpdate();
+        } catch (SQLException ex) {
+        }
+        System.out.println(sql);
+        return rsu;
+    }
     
     public static int eliminar(int id) {
         int rsu = 0;
@@ -53,7 +91,7 @@ public class Opciones {
             sql = empleados.Sentencias.LISTAR;
         } else {
             sql = "SELECT * FROM trabajador WHERE (id_empleado LIKE'" + busca + "%' OR "
-                    + "forma LIKE'" + busca + "%') "
+                    + "id_empresa LIKE'" + busca + "%') "
                     + "ORDER BY id_empleado";
         }
         String datos[] = new String[3];
@@ -69,6 +107,27 @@ public class Opciones {
         } catch (SQLException ex) {
             Logger.getLogger(formapago.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static ArrayList<trabajador> obtener(){
+        
+        ArrayList<trabajador> listado = new ArrayList<>();
+        
+        try {
+            String sql = empleados.Sentencias.LISTAR;
+            
+            
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                trabajador tra = new trabajador(rs.getInt(1),rs.getInt(2),rs.getString(3));
+                listado.add(tra);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(empleados.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listado;
+        
     }
     
     public static int extraerID() {

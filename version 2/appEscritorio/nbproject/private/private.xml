@@ -3,8 +3,73 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/principal/PrincipalAdministrador.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/login/Login.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/fotos/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/fotos/ModalFoto.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/variablesGlobales/variablesEstaticas.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/contratos/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Empresas/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Empresas/ModalEmpresa.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Comentarios/comentario.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Comentarios/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/categorias/Listar.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/servicios/servicio.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/videos/VVideo.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Documento/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/empleados/ModalEmpleado.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Documento/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/contratos/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/contratos/ModalContrato.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/formapago/fpago.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Empresas/empresa.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/municipios/ModalMunicipio.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/suscripciones/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/suscripciones/ModalSuscripcion.java</file>
             <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/municipios/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Comentarios/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/conexion/ConexionBD.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/about/About.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/fotos/foto.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Empresas/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Comentarios/VComentario.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/municipios/municipio.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/formapago/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/principal/PrincipalAdministrador.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/formapago/VFPago.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/servicios/ModalServicio.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/listaServicio/VLServicio.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Comentarios/ModalComentario.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Empresas/vEmpresa.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/suscripciones/suscripcion.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/fotos/VFoto.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/alertas/principal/WarningAlertSalir.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/videos/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/formapago/ModalFPago.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Documento/ModalDocumento.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/empleados/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Documento/VDocumento.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/categorias/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/formapago/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/empleados/trabajador.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/empleados/VEmpleado.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/alertas/principal/WarningAlertDefault.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/videos/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/contratos/VContrato.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/categorias/ModalCategoria.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/listaServicio/ModalLServicio.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/categorias/categoria.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/suscripciones/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/categorias/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/usuarios/usuario.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/videos/ModalVideo.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/alertas/principal/SuccessAlert.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/usuarios/VUsuario.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/usuarios/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/Documento/documento.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/empleados/Sentencias.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/fotos/Opciones.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/suscripciones/VSuscripcion.java</file>
+            <file>file:/C:/Users/luismiguel/Desktop/AYD2_G3AppDesktop/version%202/appEscritorio/src/usuarios/ModalUsuario.java</file>
         </group>
     </open-files>
 </project-private>

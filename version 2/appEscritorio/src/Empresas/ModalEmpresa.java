@@ -46,6 +46,13 @@ public class ModalEmpresa extends javax.swing.JDialog {
 
         this.nit.setText("");
         this.nombre.setText("");
+        this.direccion.setText("");
+        this.telefono.setText("");
+        this.zona.setText("");
+        this.latitud.setText("");
+        this.longitud.setText("");
+        this.email.setText("");
+        this.password.setText("");
 
         Opciones.listar("");
     }
@@ -510,7 +517,10 @@ public class ModalEmpresa extends javax.swing.JDialog {
     }//GEN-LAST:event_nombreKeyTyped
 
     private void nitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nitKeyTyped
-      
+      char num = evt.getKeyChar();
+        if ((num < '0' || num > '9')) {
+            evt.consume();
+        }
     }//GEN-LAST:event_nitKeyTyped
 
     private void nombre1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombre1KeyTyped
@@ -531,6 +541,10 @@ public class ModalEmpresa extends javax.swing.JDialog {
 
     private void zonaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_zonaKeyTyped
         // TODO add your handling code here:
+        char num = evt.getKeyChar();
+        if ((num < '0' || num > '9')) {
+            evt.consume();
+        }
     }//GEN-LAST:event_zonaKeyTyped
 
     private void latitudKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_latitudKeyTyped

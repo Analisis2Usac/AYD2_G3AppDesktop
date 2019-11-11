@@ -320,14 +320,24 @@ public class ModalServicio extends javax.swing.JDialog {
 
     }//GEN-LAST:event_nombreKeyTyped
 
-    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
-        if (this.nombre.getText().equals("") ) {
-
+    //------------------ ALERTAS DE ERROR 
+    
+    public void alertaError(){
+        
             ErrorAlert er = new ErrorAlert(new JFrame(), true);
             er.titulo.setText("OOPS...");
             er.msj.setText("FALTAN CAMPOS DE LLENAR");
             er.msj1.setText("");
             er.setVisible(true);
+    }
+    
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+        
+        int seleccion =  seleccionCategoria();
+        
+        if (this.nombre.getText().equals("")) {
+
+            alertaError();
 
         } else {
 
@@ -338,11 +348,10 @@ public class ModalServicio extends javax.swing.JDialog {
                 s.setIdServicio(Integer.parseInt(this.codigo.getText()));
                 s.setNombre(this.nombre.getText());
                 
-                int seleccion =  seleccionCategoria();
+                
                 System.out.println("esta es la seleccin de "+seleccion);
                 if(seleccion == 0){
                     s.setIdCategoria(idCategoria);
-                    System.out.println(idCategoria);
                 }else {
                     s.setIdCategoria(seleccion);
                     
@@ -362,6 +371,10 @@ public class ModalServicio extends javax.swing.JDialog {
                 }
 
             } else {
+                
+                if(seleccion ==0){
+                    alertaError();
+                }else{
 
                 servicios.Sentencias s = new Sentencias();
 
@@ -379,6 +392,7 @@ public class ModalServicio extends javax.swing.JDialog {
                     sa.msj.setText("SE HA REGISTRADO UN");
                     sa.msj1.setText("NUEVO PRODUCTO");
                     sa.setVisible(true);
+                }
                 }
             }
         }

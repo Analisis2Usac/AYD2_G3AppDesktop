@@ -6,6 +6,7 @@
 package principal;
 
 import Comentarios.VComentario;
+import Documento.VDocumento;
 import Empresas.vEmpresa;
 import alertas.principal.FadeEffect;
 import alertas.principal.WarningAlertCerrar;
@@ -14,6 +15,7 @@ import categorias.categoria;
 import contratos.VContrato;
 import empleados.VEmpleado;
 import formapago.VFPago;
+import fotos.VFoto;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -22,6 +24,7 @@ import municipios.municipio;
 import servicios.servicio;
 import suscripciones.VSuscripcion;
 import usuarios.VUsuario;
+import videos.VVideo;
 
 /**
  *
@@ -47,6 +50,9 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
     public VEmpleado venEmpleado = null;
     public VSuscripcion venSuscripcion = null;
     public VComentario venComentario = null;
+    public VVideo venvideo =  null;
+    public VFoto venFoto = null;
+    public VDocumento venDocumento = null;
    
  
     public static boolean estacerrado(Object obj) {
@@ -748,6 +754,17 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
 
     private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
         // TODO add your handling code here:
+        
+        if (estacerrado(venDocumento)) {
+            venDocumento = new VDocumento();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venDocumento.setSize(width, Height);
+            escritorio.add(venDocumento);
+            venDocumento.show();
+        }
+        
+        
     }//GEN-LAST:event_jLabel32MouseClicked
 
     private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
@@ -766,6 +783,16 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
 
     private void jLabel35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel35MouseClicked
         // TODO add your handling code here:
+        
+        if (estacerrado(venvideo)) {
+            venvideo = new VVideo();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venvideo.setSize(width, Height);
+            escritorio.add(venvideo);
+            venvideo.show();
+        }
+        
     }//GEN-LAST:event_jLabel35MouseClicked
 
     private void jLabel37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel37MouseClicked
@@ -853,6 +880,15 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
 
     private void jLabel49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel49MouseClicked
         // TODO add your handling code here:
+        
+        if (estacerrado(venFoto)) {
+            venFoto = new VFoto();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venFoto.setSize(width, Height);
+            escritorio.add(venFoto);
+            venFoto.show();
+        }
         
         
         

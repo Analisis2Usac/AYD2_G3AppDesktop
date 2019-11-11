@@ -13,12 +13,11 @@ public class Sentencias {
     
     public  static String LISTAR = "SELECT * FROM usuario ORDER BY email";
            
-    public static String REGISTRAR = "INSERT INTO usuario(email,contraseni,dpi,nombre,apellido,direccion,telefono,zona,latitud,longitud,id_municipio) "
+    public static String REGISTRAR = "INSERT INTO usuario(email,contrasenia,dpi,nombre,apellido,direccion,telefono,zona,latitud,longitud,id_municipio) "
             + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
     public static String ACTUALIZAR = "UPDATE usuario SET "
             + "contrasenia=? ,"
-            + "dpi=? ,"
             + "dpi=? ,"
             + "nombre=? ,"
             + "apellido=? ,"
@@ -28,7 +27,7 @@ public class Sentencias {
             + "latitud=? ,"
             + "longitud=? ,"
             + "id_municipio=? "
-            + "WHERE id_servicio=?";
+            + "WHERE email=?";
 
     public static String ELIMINAR = "DELETE FROM usuario WHERE email= ?";
     

@@ -46,7 +46,10 @@ public class trabajador {
     }
     
     
-    
+    @Override
+    public String toString(){
+        return Integer.toString(this.idEmpeado);
+    }
     
     
     

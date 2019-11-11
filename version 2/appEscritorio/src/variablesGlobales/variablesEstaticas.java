@@ -17,5 +17,6 @@ public class variablesEstaticas {
     public static int id_empresa=0;
     public static int id_pago=0;
     public static String id_usuario="";
+    public static int id_empleado =0;
     
 }

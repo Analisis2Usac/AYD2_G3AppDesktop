@@ -74,7 +74,7 @@ public class About extends javax.swing.JDialog {
         jPanel1.setBorder(dropShadowBorder1);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 153));
 
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
         cerrar.setForeground(new java.awt.Color(58, 159, 171));
@@ -133,7 +133,6 @@ public class About extends javax.swing.JDialog {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/about/logo2usac.jpg"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(58, 159, 171));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SISTEMA DESARROLLADO POR LUIS MIGUEL");
 
@@ -208,7 +207,7 @@ public class About extends javax.swing.JDialog {
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 580, 340));
 
-        jPanel5.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel5.setBackground(new java.awt.Color(51, 0, 153));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 270, 631, 195));
 

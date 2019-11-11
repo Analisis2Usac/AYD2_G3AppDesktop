@@ -98,9 +98,16 @@ public class Opciones {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
+                
                 datos[0] = Integer.toString(rs.getInt("id_categoria"));
-                datos[1] = rs.getString("nombre");
-                datos[2] = rs.getString("ruta");
+                //datos[1] = rs.getString("nombre");
+                //datos[2] = rs.getString("ruta");
+                
+                String nombre =  (rs.getString("nombre")== null) ? "vacio" : rs.getString("nombre");
+                datos[1] = nombre;
+                String ruta = (rs.getString("ruta")== null) ? "vacio" : rs.getString("ruta");
+                datos[2] = ruta;
+                
                 modelo.addRow(datos);
             }
         } catch (SQLException ex) {

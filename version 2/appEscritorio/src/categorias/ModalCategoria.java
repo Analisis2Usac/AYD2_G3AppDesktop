@@ -274,14 +274,18 @@ public class ModalCategoria extends javax.swing.JDialog {
 //        }
     }//GEN-LAST:event_nombreKeyTyped
 
-    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
-        if (this.nombre.getText().equals("") ) {
-
+    public void alertaError(){
             ErrorAlert er = new ErrorAlert(new JFrame(), true);
             er.titulo.setText("OOPS...");
             er.msj.setText("FALTAN CAMPOS DE LLENAR");
             er.msj1.setText("");
             er.setVisible(true);
+    }
+    
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+        if (this.nombre.getText().equals("") ) {
+
+            alertaError();
 
         } else {
 
@@ -306,6 +310,10 @@ public class ModalCategoria extends javax.swing.JDialog {
                 }
 
             } else {
+                
+                if(this.ruta.getText().equals("")){
+                    alertaError();
+                }else{
 
                 categorias.Sentencias s = new Sentencias();
 
@@ -323,6 +331,8 @@ public class ModalCategoria extends javax.swing.JDialog {
                     sa.msj.setText("SE HA REGISTRADO UN");
                     sa.msj1.setText("NUEVO PRODUCTO");
                     sa.setVisible(true);
+                }
+                
                 }
             }
         }

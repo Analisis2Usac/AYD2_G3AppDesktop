@@ -6,11 +6,15 @@
 package usuarios;
 
 import alertas.principal.AWTUtilities;
+import alertas.principal.ErrorAlert;
+import alertas.principal.SuccessAlert;
+import categorias.categoria;
 
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
 
 
 /**
@@ -23,6 +27,7 @@ public class ModalUsuario extends javax.swing.JDialog {
     TimerTask task;
     int i = 32;
 
+    public static int idMunicipio = 0;
     /**
      * Creates new form ModalProducto
      */
@@ -116,6 +121,8 @@ public class ModalUsuario extends javax.swing.JDialog {
         jLabel13 = new javax.swing.JLabel();
         password = new app.bolivia.swing.JCTextField();
         jLabel14 = new javax.swing.JLabel();
+        zona1 = new app.bolivia.swing.JCTextField();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -208,7 +215,7 @@ public class ModalUsuario extends javax.swing.JDialog {
         id.setText("id");
         jPanel3.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 30, -1));
 
-        panel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 720, 90));
+        panel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 720, 80));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         org.jdesktop.swingx.border.DropShadowBorder dropShadowBorder1 = new org.jdesktop.swingx.border.DropShadowBorder();
@@ -220,7 +227,7 @@ public class ModalUsuario extends javax.swing.JDialog {
         nit.setBorder(null);
         nit.setForeground(new java.awt.Color(58, 159, 171));
         nit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        nit.setPlaceholder("NIT");
+        nit.setPlaceholder("APELLIDO");
         nit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 nitKeyTyped(evt);
@@ -375,7 +382,22 @@ public class ModalUsuario extends javax.swing.JDialog {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/productos/campo-nombre.png"))); // NOI18N
         jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
-        panel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 680, 340));
+        zona1.setBorder(null);
+        zona1.setForeground(new java.awt.Color(58, 159, 171));
+        zona1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        zona1.setName("dpi"); // NOI18N
+        zona1.setPlaceholder("DPI");
+        zona1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                zona1KeyTyped(evt);
+            }
+        });
+        jPanel4.add(zona1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 240, 30));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/productos/campo-nombre.png"))); // NOI18N
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
+
+        panel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 680, 350));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 510));
 
@@ -404,7 +426,91 @@ public class ModalUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_limpiarActionPerformed
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
-        
+        if (this.nombre.getText().equals("") || this.nit.getText().equals("")|| this.direccion.getText().equals("") 
+                || this.telefono.getText().equals("")|| this.zona.getText().equals("")|| this.latitud.getText().equals("")
+                || this.longitud.getText().equals("")|| this.password.getText().equals("")|| this.email.getText().equals("")) {
+
+            ErrorAlert er = new ErrorAlert(new JFrame(), true);
+            er.titulo.setText("OOPS...");
+            er.msj.setText("FALTAN CAMPOS DE LLENAR");
+            er.msj1.setText("");
+            er.setVisible(true);
+        }
+        else {
+
+            if (this.registrar.getText().equals("GUARDAR")) {
+
+                usuarios.Sentencias s = new usuarios.Sentencias();
+
+                s.setZona(Integer.parseInt(this.zona.getText()));
+                s.setLatitud(Double.parseDouble(this.latitud.getText()));
+                s.setLongitud(Double.parseDouble(this.longitud.getText()));
+                s.setNombre(this.nombre.getText());
+                s.setApellido(this.nit.getText());
+                s.setDireccion(this.direccion.getText());
+                s.setTelefono(this.telefono.getText());
+                s.setEmail(this.email.getText());
+                s.setPassword(this.password.getText());
+                s.setDpi(this.zona1.getText());
+                
+                int seleccion =  seleccionMunicipio();
+                System.out.println("esta es la seleccin de "+seleccion);
+                if(seleccion == 0){
+                    s.setIdmunicipio(idMunicipio);
+                    System.out.println(idMunicipio);
+                }else {
+                    s.setIdmunicipio(seleccion);
+                }
+                
+            
+                int opcion = usuarios.Opciones.actualizar(s);
+                if (opcion != 0) {
+                    String fila = this.id.getText();
+                    usuarios.Opciones.listar("");
+                    SuccessAlert sa = new SuccessAlert(new JFrame(), true);
+                    sa.titulo.setText("¡HECHO!");
+                    sa.msj.setText("SE HAN GUARDADO LOS CAMBIOS");
+                    sa.msj1.setText("");
+                    sa.setVisible(true);
+                }
+
+            } else {
+
+                usuarios.Sentencias s = new usuarios.Sentencias();
+
+                s.setZona(Integer.parseInt(this.zona.getText()));
+                s.setLatitud(Double.parseDouble(this.latitud.getText()));
+                s.setLongitud(Double.parseDouble(this.longitud.getText()));
+                s.setNombre(this.nombre.getText());
+                s.setApellido(this.nit.getText());
+                s.setDireccion(this.direccion.getText());
+                s.setTelefono(this.telefono.getText());
+                s.setEmail(this.email.getText());
+                s.setPassword(this.password.getText());
+                s.setDpi(this.zona1.getText());
+                
+                int seleccion =  seleccionMunicipio();
+                System.out.println("esta es la seleccin de "+seleccion);
+                if(seleccion == 0){
+                    s.setIdmunicipio(idMunicipio);
+                    System.out.println(idMunicipio);
+                }else {
+                    s.setIdmunicipio(seleccion);
+                }
+                
+            
+                int opcion = usuarios.Opciones.registrar(s);
+                if (opcion != 0) {
+                    String fila = this.id.getText();
+                    usuarios.Opciones.listar("");
+                    SuccessAlert sa = new SuccessAlert(new JFrame(), true);
+                    sa.titulo.setText("¡HECHO!");
+                    sa.msj.setText("SE HAN GUARDADO LOS CAMBIOS");
+                    sa.msj1.setText("");
+                    sa.setVisible(true);
+                }
+            }
+        }
     }//GEN-LAST:event_registrarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -471,6 +577,10 @@ public class ModalUsuario extends javax.swing.JDialog {
     private void passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordKeyTyped
+
+    private void zona1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_zona1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zona1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -596,6 +706,7 @@ public class ModalUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -618,6 +729,7 @@ public class ModalUsuario extends javax.swing.JDialog {
     public static componentes.org1.bolivia.combo.SComboBox tipoE;
     public static javax.swing.JLabel titulo;
     public static app.bolivia.swing.JCTextField zona;
+    public static app.bolivia.swing.JCTextField zona1;
     // End of variables declaration//GEN-END:variables
 
     private void Cerrar() {

@@ -299,7 +299,7 @@ public class ModalMunicipio extends javax.swing.JDialog {
                     SuccessAlert sa = new SuccessAlert(new JFrame(), true);
                     sa.titulo.setText("¡HECHO!");
                     sa.msj.setText("SE HA REGISTRADO UN");
-                    sa.msj1.setText("NUEVO PRODUCTO");
+                    sa.msj1.setText("NUEVO CAMPO");
                     sa.setVisible(true);
                 }
             }

@@ -11,6 +11,14 @@ package empleados;
  */
 public class Sentencias {
     
+     public static String REGISTRAR = "INSERT INTO trabajador(id_empleado,id_empresa,email) "
+            + "VALUES(?,?,?)";
+
+    public static String ACTUALIZAR = "UPDATE trabajador SET "
+            + "id_empresa=? ,"
+            + "email=? "
+            + "WHERE id_empleado=? ";
+    
     public  static String LISTAR = "SELECT * FROM trabajador ORDER BY id_empleado";       
     public static String ELIMINAR = "DELETE FROM trabajador WHERE id_empleado=? ";
     

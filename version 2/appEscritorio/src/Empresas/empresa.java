@@ -22,6 +22,11 @@ public class empresa {
     private int id_municipio;
     private String email;
     private String password;
+    
+    public empresa(int idEmpresa,String nombre){
+        this.idEmpresa = idEmpresa;
+        this.nombre = nombre;
+    }
 
     public empresa(int idEmpresa, int nit, String nombre, String direccion, String telefono, int zona, double latitud, double longitud, int id_municipio, String email, String password) {
         this.idEmpresa = idEmpresa;
@@ -127,6 +132,10 @@ public class empresa {
     }
     
     
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
     
     
     

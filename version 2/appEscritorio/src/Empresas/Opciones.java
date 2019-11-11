@@ -5,14 +5,17 @@
  */
 package Empresas;
 
+import categorias.Listar;
 import conexion.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -46,9 +49,8 @@ public class Opciones {
             
             rsu = ps.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null,ex);
         }
-        System.out.println(sql);
         return rsu;
     }
 
@@ -131,6 +133,57 @@ public class Opciones {
         } catch (SQLException ex) {
             Logger.getLogger(Empresas.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static String getNombre(int id){
+        String nombre="";
+         try {
+             String sql = "SELECT nombre FROM empresa where id_empresa = "+id;
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery(sql);
+             while(rs.next()){
+                 nombre= rs.getString(1);
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return nombre;
+    }
+    
+    public static int getId(String nombre){
+        int id=0;
+         try {
+             String sql = "SELECT* FROM empresa where nombre = "+"'"+nombre+"'";
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery(sql);
+             while(rs.next()){
+                 id= rs.getInt(1);
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return id;
+    }
+    
+    public static ArrayList<empresa> obtener(){
+        
+        ArrayList<empresa> listado = new ArrayList<>();
+        
+        try {
+            String sql = Empresas.Sentencias.LISTAR;
+            
+            
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                empresa emp = new empresa(rs.getInt(1),rs.getString(3));
+                listado.add(emp);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Empresas.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listado;
+        
     }
     
     public static int extraerID() {

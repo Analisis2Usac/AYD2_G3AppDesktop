@@ -24,6 +24,45 @@ public class Opciones {
     static ConexionBD cc = new ConexionBD();
     static Connection cn = cc.conexion();
     static PreparedStatement ps;
+    
+    
+    
+        public static int registrar(contratos.Sentencias uc) {
+        int rsu = 0;
+        int codigo = 0;
+        String sql = contratos.Sentencias.REGISTRAR;
+        try {
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, codigo);
+            ps.setString(2, uc.getFecha());
+            ps.setInt(3, uc.getId_empresa());
+            ps.setInt(4, uc.getId_servicio());
+            ps.setInt(5, uc.getId_pago());
+            ps.setString(6, uc.getEmail());
+            
+            rsu = ps.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        System.out.println(sql);
+        return rsu;
+    }
+
+    public static int actualizar(contratos.Sentencias uc) {
+        int rsu = 0;
+        String sql = contratos.Sentencias.ACTUALIZAR;
+        try {
+            ps = cn.prepareStatement(sql);
+            
+            ps.setString(1,uc.getFecha() );
+            ps.setInt(2, uc.getId_contrato());
+            
+            rsu = ps.executeUpdate();
+        } catch (SQLException ex) {
+        }
+        System.out.println(sql);
+        return rsu;
+    }
 
 
     
@@ -65,9 +104,11 @@ public class Opciones {
                 
                 datos[0] = Integer.toString(rs.getInt("id_contrato"));
                 datos[1] = rs.getString("fecha");
-                datos[2] = Integer.toString(rs.getInt("id_empresa"));
-                datos[3] = Integer.toString(rs.getInt("id_servicio"));
-                datos[4] = Integer.toString(rs.getInt("id_pago"));
+                //datos[2] = Integer.toString(rs.getInt("id_empresa"));
+                //datos[3] = Integer.toString(rs.getInt("id_servicio"));
+                datos[2] =  Empresas.Opciones.getNombre(rs.getInt("id_empresa"));
+                datos[3] = servicios.Opciones.getNpmbre(rs.getInt("id_servicio"));
+                datos[4] = formapago.Opciones.getNombre(rs.getInt("id_pago"));
                 datos[5] = rs.getString("email");
                 
                 

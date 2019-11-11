@@ -49,7 +49,7 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="99" red="cc" type="rgb"/>
+              <Color blue="99" green="0" red="33" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -208,7 +208,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="99" red="cc" type="rgb"/>
+              <Color blue="99" green="0" red="33" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -242,9 +242,6 @@
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ab" green="9f" red="3a" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N"/>
                 <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt; &lt;head&gt; &lt;style&gt; #contenedor{background:white;color:black; padding-left:10px;padding-right:10px;margin:0; padding-top:5px;padding-bottom:5px;} &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;h4 id=&quot;contenedor&quot;&gt;Iniciar sesi&#xf3;n&lt;/h4&gt; &lt;/body&gt; &lt;/html&gt;"/>

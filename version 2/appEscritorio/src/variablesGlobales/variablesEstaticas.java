@@ -13,4 +13,9 @@ public class variablesEstaticas {
     
     public static String deleteOption = "";
     
+    public static int id_servicio=0;
+    public static int id_empresa=0;
+    public static int id_pago=0;
+    public static String id_usuario="";
+    
 }

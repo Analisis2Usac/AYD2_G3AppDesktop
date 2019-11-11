@@ -14,7 +14,12 @@ public class Listar {
     private int idServicio;
     private String nombre;
     private int idCategoria;
-
+    
+    public Listar(int idServicio,String nombre){
+        this.idServicio=idServicio;
+        this.nombre = nombre;
+    }
+   
     public int getIdServicio() {
         return idServicio;
     }

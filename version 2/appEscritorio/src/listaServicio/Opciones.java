@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,20 +27,21 @@ public class Opciones {
     static Connection cn = cc.conexion();
     static PreparedStatement ps;
 
-    public static int registrar(municipios.Sentencias uc) {
+    public static int registrar(listaServicio.Sentencias uc) {
         int rsu = 0;
-        /*int codigo = 0;
-        String sql = municipios.Sentencias.REGISTRAR;
+        int codigo = 0;
+        String sql = listaServicio.Sentencias.REGISTRAR;
         try {
             ps = cn.prepareStatement(sql);
-            ps.setInt(1, codigo);
-            ps.setString(2, uc.getNombre());
+            ps.setInt(1, uc.getIdEmpresa());
+            ps.setInt(2, uc.getIdServicio());
+            ps.setDouble(3, uc.getPrecio());
             
             rsu = ps.executeUpdate();
         } catch (SQLException ex) {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, ex);
         }
-        System.out.println(sql);*/
+        System.out.println(sql);
         return rsu;
     }
 
@@ -96,8 +98,8 @@ public class Opciones {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                datos[0] = Integer.toString(rs.getInt("id_empresa"));
-                datos[1] = Integer.toString(rs.getInt("id_servicio"));
+                datos[0] = Empresas.Opciones.getNombre(rs.getInt("id_empresa"));
+                datos[1] = servicios.Opciones.getNpmbre(rs.getInt("id_servicio"));
                 datos[2] = Double.toString(rs.getDouble("precio"));
                 modelo.addRow(datos);
             }

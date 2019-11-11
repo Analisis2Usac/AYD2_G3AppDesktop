@@ -11,6 +11,17 @@ package suscripciones;
  */
 public class Sentencias {
     
+    
+       public static String REGISTRAR = "INSERT INTO suscripcion(id_suscripcion,total,fecha_inicio,fecha_final,limite_servicios,id_empresa) "
+            + "VALUES(?,?,?,?,?,?)";
+
+    public static String ACTUALIZAR = "UPDATE suscripcion SET "
+            + "total=? ,"
+            + "fecha_inicio=? ,"
+            + "fecha_final=? ,"
+            + "limite_servicios=? ,"
+            + "id_empresa=? "   
+            + "WHERE id_suscripcion=? ";
     public  static String LISTAR = "SELECT * FROM suscripcion ORDER BY id_suscripcion";     
     public static String ELIMINAR = "DELETE FROM suscripcion WHERE id_suscripcion = ?";
     

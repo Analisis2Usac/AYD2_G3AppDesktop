@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -79,6 +80,27 @@ public class Opciones {
         } catch (SQLException ex) {
             Logger.getLogger(municipios.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static ArrayList<usuario> obtener(){
+        
+        ArrayList<usuario> listado = new ArrayList<>();
+        
+        try {
+            String sql = usuarios.Sentencias.LISTAR;
+            
+            
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                usuario emp = new usuario(rs.getString(1),rs.getString(4));
+                listado.add(emp);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Empresas.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listado;
+        
     }
     
     public static int extraerID() {

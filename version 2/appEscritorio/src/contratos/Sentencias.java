@@ -11,6 +11,14 @@ package contratos;
  */
 public class Sentencias {
     
+    
+     public static String REGISTRAR = "INSERT INTO detalle_contrato(id_contrato,fecha,id_empresa,id_servicio,id_pago,email) "
+            + "VALUES(?,?,?,?,?,?)";
+
+    public static String ACTUALIZAR = "UPDATE detalle_contrato SET "
+            + "fecha=? "
+            + "WHERE id_contrato=? ";
+    
     public  static String LISTAR = "SELECT * FROM detalle_contrato ORDER BY id_contrato";
     public static String ELIMINAR = "DELETE FROM detalle_contrato WHERE id_contrato =? ";
     

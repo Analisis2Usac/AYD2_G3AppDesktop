@@ -137,8 +137,8 @@ public class VFPago extends javax.swing.JInternalFrame {
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 102));
 
-        nuevo.setBackground(new java.awt.Color(255, 255, 255));
-        nuevo.setForeground(new java.awt.Color(58, 159, 171));
+        nuevo.setBackground(new java.awt.Color(0, 153, 0));
+        nuevo.setForeground(new java.awt.Color(255, 255, 255));
         nuevo.setText("NUEVA FORMA");
         nuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         nuevo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
@@ -148,8 +148,8 @@ public class VFPago extends javax.swing.JInternalFrame {
             }
         });
 
-        modificar.setBackground(new java.awt.Color(255, 255, 255));
-        modificar.setForeground(new java.awt.Color(58, 159, 171));
+        modificar.setBackground(new java.awt.Color(204, 102, 0));
+        modificar.setForeground(new java.awt.Color(255, 255, 255));
         modificar.setText("MODIFICAR");
         modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         modificar.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
@@ -159,8 +159,8 @@ public class VFPago extends javax.swing.JInternalFrame {
             }
         });
 
-        eliminar.setBackground(new java.awt.Color(255, 255, 255));
-        eliminar.setForeground(new java.awt.Color(58, 159, 171));
+        eliminar.setBackground(new java.awt.Color(204, 0, 0));
+        eliminar.setForeground(new java.awt.Color(255, 255, 255));
         eliminar.setText("ELIMINAR");
         eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eliminar.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N

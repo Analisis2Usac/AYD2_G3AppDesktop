@@ -5,6 +5,7 @@
  */
 package principal;
 
+import Comentarios.VComentario;
 import Empresas.vEmpresa;
 import alertas.principal.FadeEffect;
 import alertas.principal.WarningAlertCerrar;
@@ -45,6 +46,8 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
     public VContrato venContrato = null;
     public VEmpleado venEmpleado = null;
     public VSuscripcion venSuscripcion = null;
+    public VComentario venComentario = null;
+   
  
     public static boolean estacerrado(Object obj) {
         JInternalFrame[] activos = escritorio.getAllFrames();
@@ -94,6 +97,11 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
         btnMunicipio1 = new principal.MaterialButtomRectangle();
         btnMunicipio = new principal.MaterialButtomRectangle();
         btnMunicipio2 = new principal.MaterialButtomRectangle();
+        btnMunicipio3 = new principal.MaterialButtomRectangle();
+        btnMunicipio4 = new principal.MaterialButtomRectangle();
+        btnMunicipio5 = new principal.MaterialButtomRectangle();
+        btnMunicipio6 = new principal.MaterialButtomRectangle();
+        btnMunicipio7 = new principal.MaterialButtomRectangle();
         escritorio = new principal.Escritorio();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -205,21 +213,18 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
         jPanel3.setBorder(dropShadowBorder1);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(58, 159, 171));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("VERSION 1.0");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(58, 159, 171));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("© DERECHOS RESERVADOS 2019");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(58, 159, 171));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("ANALISIS Y DISEÑO 2");
 
-        btnAbout.setBackground(new java.awt.Color(58, 159, 171));
+        btnAbout.setBackground(new java.awt.Color(0, 0, 0));
         btnAbout.setForeground(new java.awt.Color(255, 255, 255));
         btnAbout.setText("ACERCA DE");
         btnAbout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -230,7 +235,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
             }
         });
 
-        cerrarSesion.setBackground(new java.awt.Color(58, 159, 171));
+        cerrarSesion.setBackground(new java.awt.Color(0, 0, 0));
         cerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         cerrarSesion.setText("CERRAR SESIÓN");
         cerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -274,6 +279,61 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
             }
         });
 
+        btnMunicipio3.setBackground(new java.awt.Color(0, 153, 0));
+        btnMunicipio3.setForeground(new java.awt.Color(255, 255, 255));
+        btnMunicipio3.setText("EMPRESAS");
+        btnMunicipio3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMunicipio3.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        btnMunicipio3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMunicipio3ActionPerformed(evt);
+            }
+        });
+
+        btnMunicipio4.setBackground(new java.awt.Color(0, 153, 0));
+        btnMunicipio4.setForeground(new java.awt.Color(255, 255, 255));
+        btnMunicipio4.setText("USUARIOS");
+        btnMunicipio4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMunicipio4.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        btnMunicipio4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMunicipio4ActionPerformed(evt);
+            }
+        });
+
+        btnMunicipio5.setBackground(new java.awt.Color(0, 153, 0));
+        btnMunicipio5.setForeground(new java.awt.Color(255, 255, 255));
+        btnMunicipio5.setText("LISTA SERVICIOS");
+        btnMunicipio5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMunicipio5.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        btnMunicipio5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMunicipio5ActionPerformed(evt);
+            }
+        });
+
+        btnMunicipio6.setBackground(new java.awt.Color(0, 153, 0));
+        btnMunicipio6.setForeground(new java.awt.Color(255, 255, 255));
+        btnMunicipio6.setText("CONTRATO");
+        btnMunicipio6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMunicipio6.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        btnMunicipio6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMunicipio6ActionPerformed(evt);
+            }
+        });
+
+        btnMunicipio7.setBackground(new java.awt.Color(0, 153, 0));
+        btnMunicipio7.setForeground(new java.awt.Color(255, 255, 255));
+        btnMunicipio7.setText("FORMA PAGO");
+        btnMunicipio7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMunicipio7.setFont(new java.awt.Font("Roboto Medium", 1, 18)); // NOI18N
+        btnMunicipio7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMunicipio7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -281,17 +341,18 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
                     .addComponent(btnMunicipio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnMunicipio1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnMunicipio2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnMunicipio2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMunicipio5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMunicipio3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMunicipio4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMunicipio6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMunicipio7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAbout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -303,16 +364,26 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnMunicipio1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnMunicipio1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMunicipio2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(309, 309, 309)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMunicipio4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMunicipio3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMunicipio5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMunicipio7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMunicipio6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
                 .addComponent(btnAbout, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addComponent(cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
@@ -781,6 +852,17 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
 
     private void jLabel51MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel51MouseClicked
         // TODO add your handling code here:
+        
+        if (estacerrado(venComentario)) {
+            venComentario = new VComentario();
+            int width = escritorio.getWidth();
+            int Height = escritorio.getHeight();
+            venComentario.setSize(width, Height);
+            escritorio.add(venComentario);
+            venComentario.show();
+        }
+        
+        
     }//GEN-LAST:event_jLabel51MouseClicked
 
     private void jLabel53MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel53MouseClicked
@@ -799,6 +881,26 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
         }
         System.out.println("se realizo un ejemplo");
     }//GEN-LAST:event_jLabel28MouseClicked
+
+    private void btnMunicipio3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMunicipio3ActionPerformed
+
+    private void btnMunicipio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMunicipio4ActionPerformed
+
+    private void btnMunicipio5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMunicipio5ActionPerformed
+
+    private void btnMunicipio6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMunicipio6ActionPerformed
+
+    private void btnMunicipio7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMunicipio7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMunicipio7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -841,6 +943,11 @@ public class PrincipalAdministrador extends javax.swing.JFrame {
     private principal.MaterialButtomRectangle btnMunicipio;
     private principal.MaterialButtomRectangle btnMunicipio1;
     private principal.MaterialButtomRectangle btnMunicipio2;
+    private principal.MaterialButtomRectangle btnMunicipio3;
+    private principal.MaterialButtomRectangle btnMunicipio4;
+    private principal.MaterialButtomRectangle btnMunicipio5;
+    private principal.MaterialButtomRectangle btnMunicipio6;
+    private principal.MaterialButtomRectangle btnMunicipio7;
     private principal.MaterialButton cerrar;
     private principal.MaterialButtomRectangle cerrarSesion;
     public static principal.Escritorio escritorio;

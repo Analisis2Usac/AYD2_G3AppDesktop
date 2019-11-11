@@ -302,18 +302,22 @@ public class ModalServicio extends javax.swing.JDialog {
     }//GEN-LAST:event_codigoKeyTyped
 
     private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
-        char letras = evt.getKeyChar();
-        if ((letras < 'a' || letras > 'z') && (letras < 'A' | letras > 'Z')) {
-            if ((letras != 'ñ') && (letras != 'Ñ') && (letras != 'á') && (letras != 'Á') && (letras != 'é') && (letras != 'É') && (letras != 'í')
-                    && (letras != 'Í') && (letras != 'ó') && (letras != 'Ó') && (letras != 'ú') && (letras != 'Ú') && (letras != ' ')) {
-                evt.consume();
-            }
-        }
-        if (Character.isLowerCase(letras)) {
-            String cad = ("" + letras).toUpperCase();
-            letras = cad.charAt(0);
-            evt.setKeyChar(letras);
-        }
+//        char letras = evt.getKeyChar();
+//        if ((letras < 'a' || letras > 'z') && (letras < 'A' | letras > 'Z')) {
+//            if ((letras != 'ñ') && (letras != 'Ñ') && (letras != 'á') && (letras != 'Á') && (letras != 'é') && (letras != 'É') && (letras != 'í')
+//                    && (letras != 'Í') && (letras != 'ó') && (letras != 'Ó') && (letras != 'ú') && (letras != 'Ú') && (letras != ' ')) {
+//                evt.consume();
+//            }
+//        }
+//        if (Character.isLowerCase(letras)) {
+//            String cad = ("" + letras).toUpperCase();
+//            letras = cad.charAt(0);
+//            evt.setKeyChar(letras);
+//        }
+
+
+
+
     }//GEN-LAST:event_nombreKeyTyped
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed

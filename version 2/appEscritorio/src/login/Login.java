@@ -69,7 +69,7 @@ public class Login extends javax.swing.JFrame {
         });
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 153));
 
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
         cerrar.setForeground(new java.awt.Color(58, 159, 171));
@@ -134,10 +134,9 @@ public class Login extends javax.swing.JFrame {
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         panel1.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 404, 450, 20));
 
-        jPanel2.setBackground(new java.awt.Color(204, 153, 0));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 153));
 
         btnVentas.setBackground(new java.awt.Color(255, 255, 255));
-        btnVentas.setForeground(new java.awt.Color(58, 159, 171));
         btnVentas.setText("INICIAR SESIÓN");
         btnVentas.setToolTipText("<html> <head> <style> #contenedor{background:white;color:black; padding-left:10px;padding-right:10px;margin:0; padding-top:5px;padding-bottom:5px;} </style> </head> <body> <h4 id=\"contenedor\">Iniciar sesión</h4> </body> </html>");
         btnVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -76,9 +76,9 @@ public class municipio extends javax.swing.JInternalFrame {
         setBorder(dropShadowBorder1);
         setOpaque(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 153));
 
-        jPanel2.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 153));
 
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
         cerrar.setForeground(new java.awt.Color(58, 159, 171));
@@ -128,7 +128,7 @@ public class municipio extends javax.swing.JInternalFrame {
                     .addContainerGap()))
         );
 
-        jPanel7.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel7.setBackground(new java.awt.Color(0, 0, 0));
 
         tabla.setBackground(new java.awt.Color(204, 204, 204));
         tabla.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -173,7 +173,7 @@ public class municipio extends javax.swing.JInternalFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -192,7 +192,7 @@ public class municipio extends javax.swing.JInternalFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/productos/campo-buscar.png"))); // NOI18N
 
-        modificar1.setBackground(new java.awt.Color(58, 159, 171));
+        modificar1.setBackground(new java.awt.Color(204, 102, 0));
         modificar1.setForeground(new java.awt.Color(255, 255, 255));
         modificar1.setText("MODIFICAR");
         modificar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -203,7 +203,7 @@ public class municipio extends javax.swing.JInternalFrame {
             }
         });
 
-        eliminar1.setBackground(new java.awt.Color(58, 159, 171));
+        eliminar1.setBackground(new java.awt.Color(204, 0, 0));
         eliminar1.setForeground(new java.awt.Color(255, 255, 255));
         eliminar1.setText("ELIMINAR");
         eliminar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -214,9 +214,9 @@ public class municipio extends javax.swing.JInternalFrame {
             }
         });
 
-        nuevo1.setBackground(new java.awt.Color(58, 159, 171));
+        nuevo1.setBackground(new java.awt.Color(51, 153, 0));
         nuevo1.setForeground(new java.awt.Color(255, 255, 255));
-        nuevo1.setText("NUEVO PRODUCTO");
+        nuevo1.setText("MUNICIPIO NUEVO");
         nuevo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         nuevo1.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         nuevo1.addActionListener(new java.awt.event.ActionListener() {

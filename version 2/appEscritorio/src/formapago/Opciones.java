@@ -5,12 +5,14 @@
  */
 package formapago;
 
+import Empresas.empresa;
 import conexion.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -102,6 +104,45 @@ public class Opciones {
             Logger.getLogger(formapago.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public static ArrayList<fpago> obtener(){
+        
+        ArrayList<fpago> listado = new ArrayList<>();
+        
+        try {
+            String sql = formapago.Sentencias.LISTAR;
+            
+            
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                fpago fp = new fpago(rs.getInt(1),rs.getString(2));
+                listado.add(fp);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Empresas.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listado;
+        
+    }
+    
+    public static String getNombre(int id){
+        String nombre="";
+         try {
+             String sql = "SELECT forma FROM forma_pago where id_pago = "+id;
+             Statement st = cn.createStatement();
+             ResultSet rs = st.executeQuery(sql);
+             while(rs.next()){
+                 nombre= rs.getString(1);
+             }
+         } catch (SQLException ex) {
+             Logger.getLogger(Empresas.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return nombre;
+    }
+    
+    
+    
     
     public static int extraerID() {
         int c = 0;

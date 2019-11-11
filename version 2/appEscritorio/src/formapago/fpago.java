@@ -39,6 +39,9 @@ public class fpago {
      
     
     
-    
+     @Override
+    public String toString(){
+        return this.forma;
+    }
     
 }

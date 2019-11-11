@@ -73,7 +73,7 @@ public class VLServicio extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 153));
 
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
         cerrar.setForeground(new java.awt.Color(58, 159, 171));
@@ -123,11 +123,11 @@ public class VLServicio extends javax.swing.JInternalFrame {
                     .addContainerGap()))
         );
 
-        jPanel7.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel7.setBackground(new java.awt.Color(51, 0, 153));
 
-        nuevo.setBackground(new java.awt.Color(255, 255, 255));
-        nuevo.setForeground(new java.awt.Color(58, 159, 171));
-        nuevo.setText("NUEVO USUARIO");
+        nuevo.setBackground(new java.awt.Color(0, 153, 0));
+        nuevo.setForeground(new java.awt.Color(255, 255, 255));
+        nuevo.setText("REGISTRO NUEVO");
         nuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         nuevo.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
         nuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -136,8 +136,8 @@ public class VLServicio extends javax.swing.JInternalFrame {
             }
         });
 
-        modificar.setBackground(new java.awt.Color(255, 255, 255));
-        modificar.setForeground(new java.awt.Color(58, 159, 171));
+        modificar.setBackground(new java.awt.Color(255, 153, 0));
+        modificar.setForeground(new java.awt.Color(255, 255, 255));
         modificar.setText("MODIFICAR");
         modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         modificar.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
@@ -147,8 +147,8 @@ public class VLServicio extends javax.swing.JInternalFrame {
             }
         });
 
-        eliminar.setBackground(new java.awt.Color(255, 255, 255));
-        eliminar.setForeground(new java.awt.Color(58, 159, 171));
+        eliminar.setBackground(new java.awt.Color(204, 51, 0));
+        eliminar.setForeground(new java.awt.Color(255, 255, 255));
         eliminar.setText("ELIMINAR");
         eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         eliminar.setFont(new java.awt.Font("Roboto Medium", 1, 14)); // NOI18N
@@ -260,7 +260,7 @@ public class VLServicio extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -313,10 +313,13 @@ public class VLServicio extends javax.swing.JInternalFrame {
                 ModalLServicio mp = new ModalLServicio(new JFrame(), true);
                 mp.id.setText(this.tabla.getValueAt(fila, 0).toString());                
                 
-                idEmpesa = Integer.parseInt(this.tabla.getValueAt(fila, 0).toString());
-                idServicio = Integer.parseInt(this.tabla.getValueAt(fila, 1).toString());
-                mp.txtPrecio.setText(this.tabla.getValueAt(fila, 2).toString());
-                
+                //idEmpesa = Integer.parseInt(this.tabla.getValueAt(fila, 0).toString());
+                //idServicio = Integer.parseInt(this.tabla.getValueAt(fila, 1).toString());
+                idEmpesa = Empresas.Opciones.getId(tabla.getValueAt(fila, 0).toString());
+                idServicio = servicios.Opciones.getId(tabla.getValueAt(fila, 1).toString());
+                mp.txtPrecio.setText(tabla.getValueAt(fila, 2).toString());
+                mp.tipoEmpresa.setEnabled(false);
+                mp.tipoServicio.setEnabled(false);
                 mp.titulo.setText("MODIFICAR");
                 mp.registrar.setText("GUARDAR");
                 mp.setVisible(true);
@@ -344,6 +347,8 @@ public class VLServicio extends javax.swing.JInternalFrame {
                 WarningAlertDefault wa = new WarningAlertDefault(new JFrame(), true);
                 wa.id.setText(this.tabla.getValueAt(fila, 0).toString());
                 Empresas.vEmpresa.deleteOption = "DLServicio";
+                idEmpesa = Empresas.Opciones.getId(tabla.getValueAt(fila, 0).toString());
+                idServicio = servicios.Opciones.getId(tabla.getValueAt(fila, 1).toString());
                 wa.titulo.setText("¿ESTAS SEGURO?");
                 wa.msj.setText("SE BORRARA PERMANENTEMENTE");
                 wa.msj1.setText("");

@@ -64,8 +64,8 @@ public class VUsuario extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
         buscar = new app.bolivia.swing.JCTextField();
-        jLabel3 = new javax.swing.JLabel();
         modificar1 = new principal.MaterialButton();
+        jLabel3 = new javax.swing.JLabel();
         eliminar1 = new principal.MaterialButton();
         nuevo1 = new principal.MaterialButton();
 
@@ -190,8 +190,6 @@ public class VUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/productos/campo-buscar.png"))); // NOI18N
-
         modificar1.setBackground(new java.awt.Color(255, 204, 0));
         modificar1.setForeground(new java.awt.Color(255, 255, 255));
         modificar1.setText("MODIFICAR");
@@ -202,6 +200,8 @@ public class VUsuario extends javax.swing.JInternalFrame {
                 modificar1ActionPerformed(evt);
             }
         });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/productos/campo-buscar.png"))); // NOI18N
 
         eliminar1.setBackground(new java.awt.Color(204, 0, 0));
         eliminar1.setForeground(new java.awt.Color(255, 255, 255));

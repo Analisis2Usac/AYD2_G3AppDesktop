@@ -11,10 +11,13 @@ import alertas.principal.ErrorAlert;
 import alertas.principal.SuccessAlert;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import municipios.municipio;
+import static servicios.ModalServicio.tipo;
 
 /**
  *
@@ -36,6 +39,8 @@ public class ModalLServicio extends javax.swing.JDialog {
         this.id.setVisible(false);
         Ubicar(0);
         this.txtPrecio.requestFocus();
+        llenarCbxempresa();
+        llenarCbxServicio();
     }
 
     private void limpiarCampos() {
@@ -46,6 +51,45 @@ public class ModalLServicio extends javax.swing.JDialog {
         Opciones.listar("");
 
     }
+     //------------------------ COMBO DE EMPRESA 
+    private int selectEmpresa(){
+        Empresas.empresa emp =(Empresas.empresa) tipoEmpresa.getSelectedItem();
+        return emp.getIdEmpresa();
+    }
+    private void llenarCbxempresa(){
+        ArrayList<Empresas.empresa> list = Empresas.Opciones.obtener();
+          
+        
+        DefaultComboBoxModel value = new DefaultComboBoxModel();
+        tipoEmpresa.setModel(value);
+        
+        value.addElement(new Empresas.empresa(0,"Ingresar Empresa"));
+        
+        for(Empresas.empresa item : list){
+            value.addElement(new Empresas.empresa(item.getIdEmpresa(),item.getNombre()));
+        } 
+    }
+    
+    //--------------------------- COMBO DE SERVICIO
+    
+    private int selectServicio(){
+        servicios.Listar emp =(servicios.Listar) tipoServicio.getSelectedItem();
+        return emp.getIdServicio();
+    }
+    
+    private void llenarCbxServicio(){
+        ArrayList<servicios.Listar> list = servicios.Opciones.obtener();
+        DefaultComboBoxModel value = new DefaultComboBoxModel();
+        tipoServicio.setModel(value);
+        value.addElement(new servicios.Listar(0,"Ingresar Servicio"));
+        
+        for(servicios.Listar item : list){
+            value.addElement(new servicios.Listar(item.getIdServicio(),item.getNombre()));
+        }
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,6 +107,10 @@ public class ModalLServicio extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         txtPrecio = new app.bolivia.swing.JCTextField();
         jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tipoEmpresa = new componentes.org1.bolivia.combo.SComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        tipoServicio = new componentes.org1.bolivia.combo.SComboBox();
         jPanel3 = new javax.swing.JPanel();
         limpiar = new principal.MaterialButton();
         registrar = new principal.MaterialButton();
@@ -80,7 +128,7 @@ public class ModalLServicio extends javax.swing.JDialog {
         panel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alertas/img/fondo.png"))); // NOI18N
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 153));
 
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
         cerrar.setForeground(new java.awt.Color(58, 159, 171));
@@ -131,14 +179,33 @@ public class ModalLServicio extends javax.swing.JDialog {
         txtPrecio.setForeground(new java.awt.Color(58, 159, 171));
         txtPrecio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtPrecio.setPlaceholder("PRECIO");
-        jPanel4.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 240, 30));
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
+        jPanel4.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 240, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/login/campo-usuario.png"))); // NOI18N
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
-        panel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 420, 150));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuarios/icono-usuario.png"))); // NOI18N
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 60, 60));
 
-        jPanel3.setBackground(new java.awt.Color(58, 159, 171));
+        tipoEmpresa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO EMPRESA" }));
+        tipoEmpresa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel4.add(tipoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 230, 30));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuarios/icono-usuario.png"))); // NOI18N
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 60, 60));
+
+        tipoServicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TIPO SERVICIO" }));
+        tipoServicio.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel4.add(tipoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 230, 30));
+
+        panel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 420, 260));
+
+        jPanel3.setBackground(new java.awt.Color(51, 0, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         limpiar.setBackground(new java.awt.Color(255, 255, 255));
@@ -177,9 +244,9 @@ public class ModalLServicio extends javax.swing.JDialog {
         id.setText("id");
         jPanel3.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 30, -1));
 
-        panel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 459, 150));
+        panel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 459, 150));
 
-        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 476, 400));
+        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 476, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -223,10 +290,7 @@ public class ModalLServicio extends javax.swing.JDialog {
 
                 s.setIdEmpresa(VLServicio.idEmpesa);
                 s.setIdServicio(VLServicio.idServicio);
-                s.setPrecio(Double.parseDouble(this.txtPrecio.getText()));
-                
-                System.out.println("este es un ejemplo "+ Double.parseDouble(this.txtPrecio.getText()));
-                
+                s.setPrecio(Double.parseDouble(this.txtPrecio.getText())); 
             
                 int opcion = listaServicio.Opciones.actualizar(s);
                 if (opcion != 0) {
@@ -242,22 +306,23 @@ public class ModalLServicio extends javax.swing.JDialog {
 
             } else {
 
-              /*  listaServicio.Sentencias s = new listaServicio.Sentencias();
+                listaServicio.Sentencias s = new listaServicio.Sentencias();
 
-                s.setIdmunicipio(0);
-                s.setNombre(this.nombre.getText());
+                s.setIdEmpresa(selectEmpresa());
+                s.setIdServicio(selectServicio());
+                s.setPrecio(Integer.parseInt(txtPrecio.getText()));
                
-                int opcion = municipios.Opciones.registrar(s);
+                int opcion = listaServicio.Opciones.registrar(s);
                 if (opcion != 0) {
-                    String fila = String.valueOf(municipios.Opciones.extraerID());
+                    String fila = String.valueOf(listaServicio.Opciones.extraerID());
                     limpiarCampos();
-                    municipio.seleccionaFila(fila);
+                    //listaServicio.seleccionaFila(fila);
                     SuccessAlert sa = new SuccessAlert(new JFrame(), true);
                     sa.titulo.setText("¡HECHO!");
                     sa.msj.setText("SE HA REGISTRADO UN");
                     sa.msj1.setText("NUEVO PRODUCTO");
                     sa.setVisible(true);
-                }*/
+                }
             }
         }
         
@@ -283,6 +348,10 @@ public class ModalLServicio extends javax.swing.JDialog {
     private void registrarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registrarKeyTyped
        
     }//GEN-LAST:event_registrarKeyTyped
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        
+    }//GEN-LAST:event_txtPrecioKeyTyped
 
     /**
      * @param args the command line arguments
@@ -344,6 +413,8 @@ public class ModalLServicio extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private principal.MaterialButton cerrar;
     public static javax.swing.JLabel id;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -351,6 +422,8 @@ public class ModalLServicio extends javax.swing.JDialog {
     private principal.MaterialButton limpiar;
     private org.edisoncor.gui.panel.Panel panel1;
     public static principal.MaterialButton registrar;
+    public static componentes.org1.bolivia.combo.SComboBox tipoEmpresa;
+    public static componentes.org1.bolivia.combo.SComboBox tipoServicio;
     public static javax.swing.JLabel titulo;
     public static app.bolivia.swing.JCTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

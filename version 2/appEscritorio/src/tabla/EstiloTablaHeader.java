@@ -36,7 +36,8 @@ public class EstiloTablaHeader implements TableCellRenderer{
         jcomponent.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 0, 1, new java.awt.Color(255, 255, 255)));
         jcomponent.setOpaque(true);
         //jcomponent.setBackground( new Color(58, 159, 171) );
-        jcomponent.setBackground( new Color(28,200,54) );
+        //jcomponent.setBackground( new Color(28,200,54) );
+        jcomponent.setBackground(new Color(11,20,151));
         jcomponent.setForeground(Color.WHITE);
         jcomponent.setFont(new Font("Tahoma", Font.BOLD, 15));
         

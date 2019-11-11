@@ -5,12 +5,14 @@
  */
 package servicios;
 
+import Empresas.empresa;
 import conexion.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -88,7 +90,7 @@ public class Opciones {
             sql = servicios.Sentencias.LISTAR;
         } else {
             sql = "SELECT * FROM servicio WHERE (id_servicio LIKE'" + busca + "%' OR "
-                    + "nombre LIKE'" + busca + "%') "
+                    + "nombre_servicio LIKE'" + busca + "%') "
                     + "ORDER BY id_servicio";
         }
         String datos[] = new String[3];
@@ -102,7 +104,7 @@ public class Opciones {
                 modelo.addRow(datos);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(municipios.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(servicios.Opciones.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -122,6 +124,61 @@ public class Opciones {
         }
         return c;
     }
+    
+    public static String getNpmbre(int id){
+        String nombre="";
+        try {
+            String sql = "SELECT nombre_servicio FROM servicio where id_servicio = "+id;
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                nombre = rs.getString(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nombre;
+    }
+    
+     public static int getId(String nombre){
+        int id=0;
+        try {
+            String sql = "SELECT* FROM servicio where nombre_servicio = "+"'"+nombre+"'";
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                id = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    
+    public static ArrayList<Listar> obtener(){
+        
+        ArrayList<Listar> listado = new ArrayList<>();
+        
+        try {
+            String sql = servicios.Sentencias.LISTAR;
+            
+            
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                Listar ser = new Listar(rs.getInt(1),rs.getString(2));
+                listado.add(ser);                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(servicios.Opciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listado;
+        
+    }
+    
+    
+    
+            
     
     public static void iniciarTransaccion(){
         try {

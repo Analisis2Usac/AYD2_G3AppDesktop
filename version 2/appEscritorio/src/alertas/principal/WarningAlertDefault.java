@@ -223,6 +223,20 @@ public class WarningAlertDefault extends javax.swing.JDialog {
         
         }
             
+        }else if(variablesGlobales.variablesEstaticas.deleteOption.equals("DComentario")){
+            
+         int elimina = Comentarios.Opciones.eliminar(Integer.parseInt(this.id.getText()));
+        if (elimina != 0) {
+            Comentarios.Opciones.listar("");
+            this.dispose();
+            SuccessAlert sa = new SuccessAlert(new JFrame(), true);
+            sa.titulo.setText("¡HECHO!");
+            sa.msj.setText("SE HA ELIMINADO UN");
+            sa.msj1.setText("REGISTRO");
+            sa.setVisible(true);
+        
+        }
+            
         }
            
             

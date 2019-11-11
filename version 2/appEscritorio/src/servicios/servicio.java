@@ -74,9 +74,9 @@ public class servicio extends javax.swing.JInternalFrame {
         setBorder(dropShadowBorder1);
         setOpaque(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 153));
 
-        jPanel2.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel2.setBackground(new java.awt.Color(51, 0, 153));
 
         cerrar.setBackground(new java.awt.Color(255, 255, 255));
         cerrar.setForeground(new java.awt.Color(58, 159, 171));
@@ -126,7 +126,7 @@ public class servicio extends javax.swing.JInternalFrame {
                     .addContainerGap()))
         );
 
-        jPanel7.setBackground(new java.awt.Color(58, 159, 171));
+        jPanel7.setBackground(new java.awt.Color(0, 0, 0));
 
         tabla.setBackground(new java.awt.Color(204, 204, 204));
         tabla.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -190,7 +190,7 @@ public class servicio extends javax.swing.JInternalFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/productos/campo-buscar.png"))); // NOI18N
 
-        modificar1.setBackground(new java.awt.Color(255, 204, 0));
+        modificar1.setBackground(new java.awt.Color(204, 153, 0));
         modificar1.setForeground(new java.awt.Color(255, 255, 255));
         modificar1.setText("MODIFICAR");
         modificar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -212,7 +212,7 @@ public class servicio extends javax.swing.JInternalFrame {
             }
         });
 
-        nuevo1.setBackground(new java.awt.Color(0, 0, 153));
+        nuevo1.setBackground(new java.awt.Color(51, 153, 0));
         nuevo1.setForeground(new java.awt.Color(255, 255, 255));
         nuevo1.setText("NUEVO PRODUCTO");
         nuevo1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -361,7 +361,7 @@ public class servicio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_eliminar1ActionPerformed
 
     private void buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyReleased
-        municipios.Opciones.listar(this.buscar.getText());
+        servicios.Opciones.listar(this.buscar.getText());
     }//GEN-LAST:event_buscarKeyReleased
 
     private void buscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarKeyTyped

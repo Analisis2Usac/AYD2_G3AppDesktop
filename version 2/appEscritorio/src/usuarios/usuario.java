@@ -22,6 +22,11 @@ public class usuario {
     private double latitud;
     private double longitud;
     private int idmunicipio;
+    
+    public usuario(String email,String nombre){
+        this.email = email;
+        this.nombre = nombre;
+    }
 
     public usuario(String email, String password, String dpi, String nombre, String apellido, String direccion, String telefono, int zona, double latitud, double longitud, int idmunicipio) {
         this.email = email;
@@ -125,7 +130,10 @@ public class usuario {
         this.idmunicipio = idmunicipio;
     }
     
-    
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
     
     
     
